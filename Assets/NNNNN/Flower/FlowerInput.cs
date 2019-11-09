@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class FlowerInput : MonoBehaviour
 
    public void DoNext()
     {
+        transform.DOScale(Vector3.one * 1.3f, 0.5f).SetLoops(2, LoopType.Yoyo);
         this.canMove = false;
         if(next)
         {
