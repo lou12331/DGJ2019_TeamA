@@ -38,8 +38,18 @@ public class GeneralManager : MonoBehaviour
     {
         for (int i = 0; i < SelectedCards.Count; i++)
         {
-            Parent.transform.GetChild(i).GetComponentInChildren<Text>().text = SelectedCards[i];
+            //Parent.transform.GetChild(i).GetComponentInChildren<Text>().text = SelectedCards[i];
+            MiniGameSceneManager miniGameScene = GetComponent<MiniGameSceneManager>();
+            Parent.transform.GetChild(i).GetComponent<Image>().sprite = miniGameScene.GameCardSprites[miniGameScene.MiniGameScenes.FindIndex(x => x == SelectedCards[i])];
         }
+    }
+    public void OpenShowSingleCard(Image Card)
+    {
+        MiniGameSceneManager miniGameScene = GetComponent<MiniGameSceneManager>();
+        int id = miniGameScene.MiniGameScenes.FindIndex(x => x == SelectedCards[nowPlayingIndex]);
+        Card.sprite = miniGameScene.GameCardSprites[id];
+        Card.transform.Find("CardName").GetComponent<Text>().text = miniGameScene.GameCardNames[id];
+        Card.transform.Find("CardDescription").GetComponent<Text>().text = miniGameScene.GameCardDescriptions[id];
     }
 
     public void SetThisRoundWinner(Player player)
