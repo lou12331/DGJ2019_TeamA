@@ -7,21 +7,33 @@ public class Party : MonoBehaviour
 {
 
     PostProcessVolume ps;
-    ColorGrading outSetting;
+    
+    public PostProcessProfile file;
+    private PostProcessProfile self;
+    public int amp;
 
     // Start is called before the first frame update
     void Start()
     {
         ps = GetComponent<PostProcessVolume>();
-        ps.sharedProfile.TryGetSettings<ColorGrading>(out ColorGrading outSetting);
+        self = Instantiate(ps.sharedProfile);
+        Debug.Log(self);
+
+        ps.sharedProfile = self;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(outSetting)
+
+        self.TryGetSettings(out ColorGrading setting);
+
+        //ps.sharedProfile.TryGetSettings(out ColorGrading outSetting);
+        if (setting)
         {
-            outSetting.hueShift.value = Random.Range(0, 1);
+            setting.hueShift.value = Mathf.Sin(Time.time)* amp;
+            Debug.Log("Party!");
         }
     }
 }

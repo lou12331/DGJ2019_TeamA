@@ -6,10 +6,11 @@ public class FlowerInput : MonoBehaviour
 {
     public bool canMove;
     public float deltaAngle;
-    public string inputA;
-    public string inputB;
+    public KeyCode inputA;
+    public KeyCode inputB;
     public FlowerInput next;
     public float targetValue;
+    public bool win = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class FlowerInput : MonoBehaviour
         }
         else
         {
-
+            win = true;
             Debug.LogError("沒有下一個萬花筒 ");
         }
         
@@ -34,6 +35,7 @@ public class FlowerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(canMove)
         {
             if(Input.GetKey(inputA))
