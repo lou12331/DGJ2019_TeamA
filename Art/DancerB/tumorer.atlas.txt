@@ -1,0 +1,517 @@
+
+tumorer.png
+size: 4096,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Armor A
+  rotate: true
+  xy: 809, 501
+  size: 361, 308
+  orig: 363, 310
+  offset: 1, 1
+  index: -1
+Armor B
+  rotate: true
+  xy: 2472, 774
+  size: 248, 287
+  orig: 250, 289
+  offset: 1, 1
+  index: -1
+Armor C
+  rotate: true
+  xy: 2170, 780
+  size: 242, 300
+  orig: 244, 302
+  offset: 1, 1
+  index: -1
+Armor D
+  rotate: false
+  xy: 1119, 585
+  size: 242, 323
+  orig: 244, 325
+  offset: 1, 1
+  index: -1
+Blood
+  rotate: false
+  xy: 3048, 843
+  size: 194, 179
+  orig: 196, 181
+  offset: 1, 1
+  index: -1
+Body
+  rotate: false
+  xy: 467, 469
+  size: 340, 379
+  orig: 342, 381
+  offset: 1, 1
+  index: -1
+Carry
+  rotate: false
+  xy: 168, 400
+  size: 297, 448
+  orig: 299, 450
+  offset: 1, 1
+  index: -1
+Fire Weapon
+  rotate: false
+  xy: 2, 850
+  size: 675, 172
+  orig: 677, 174
+  offset: 1, 1
+  index: -1
+Head Dead Pink A
+  rotate: false
+  xy: 2836, 667
+  size: 153, 160
+  orig: 155, 162
+  offset: 1, 1
+  index: -1
+Head Dead Pink B
+  rotate: false
+  xy: 1633, 580
+  size: 143, 94
+  orig: 145, 96
+  offset: 1, 1
+  index: -1
+Head Dead Yellow A
+  rotate: false
+  xy: 2836, 513
+  size: 154, 152
+  orig: 156, 154
+  offset: 1, 1
+  index: -1
+Head Dead Yellow B
+  rotate: true
+  xy: 1417, 302
+  size: 143, 94
+  orig: 145, 96
+  offset: 1, 1
+  index: -1
+Head Pink A
+  rotate: true
+  xy: 3244, 845
+  size: 177, 193
+  orig: 179, 195
+  offset: 1, 1
+  index: -1
+Head Pink B
+  rotate: true
+  xy: 3439, 845
+  size: 177, 193
+  orig: 179, 195
+  offset: 1, 1
+  index: -1
+Head Pink Base A
+  rotate: true
+  xy: 3634, 845
+  size: 177, 193
+  orig: 179, 195
+  offset: 1, 1
+  index: -1
+Head Pink Base B
+  rotate: true
+  xy: 3829, 845
+  size: 177, 193
+  orig: 179, 195
+  offset: 1, 1
+  index: -1
+Head Pink C
+  rotate: false
+  xy: 2, 40
+  size: 177, 193
+  orig: 179, 195
+  offset: 1, 1
+  index: -1
+Head Pink D
+  rotate: false
+  xy: 181, 63
+  size: 175, 193
+  orig: 177, 195
+  offset: 1, 1
+  index: -1
+Head Suck Down Pink A
+  rotate: false
+  xy: 3438, 625
+  size: 149, 83
+  orig: 151, 85
+  offset: 1, 1
+  index: -1
+Head Suck Down Yellow A
+  rotate: false
+  xy: 3282, 627
+  size: 154, 81
+  orig: 156, 83
+  offset: 1, 1
+  index: -1
+Head Suck Up Pink A
+  rotate: false
+  xy: 2991, 670
+  size: 144, 157
+  orig: 146, 159
+  offset: 1, 1
+  index: -1
+Head Suck Up Yellow A
+  rotate: false
+  xy: 3137, 689
+  size: 143, 152
+  orig: 145, 154
+  offset: 1, 1
+  index: -1
+Head Yellow A
+  rotate: true
+  xy: 2167, 611
+  size: 167, 183
+  orig: 169, 185
+  offset: 1, 1
+  index: -1
+Head Yellow B
+  rotate: true
+  xy: 1852, 679
+  size: 167, 185
+  orig: 169, 187
+  offset: 1, 1
+  index: -1
+Head Yellow Base A
+  rotate: true
+  xy: 1474, 676
+  size: 174, 187
+  orig: 176, 189
+  offset: 1, 1
+  index: -1
+Head Yellow Base B
+  rotate: true
+  xy: 1663, 676
+  size: 174, 187
+  orig: 176, 189
+  offset: 1, 1
+  index: -1
+Head Yellow C
+  rotate: false
+  xy: 2655, 592
+  size: 179, 180
+  orig: 181, 182
+  offset: 1, 1
+  index: -1
+Head Yellow D
+  rotate: true
+  xy: 2470, 606
+  size: 166, 183
+  orig: 168, 185
+  offset: 1, 1
+  index: -1
+Hip
+  rotate: false
+  xy: 1858, 848
+  size: 310, 174
+  orig: 312, 176
+  offset: 1, 1
+  index: -1
+Hood
+  rotate: true
+  xy: 476, 84
+  size: 177, 104
+  orig: 179, 106
+  offset: 1, 1
+  index: -1
+Hood Blood
+  rotate: false
+  xy: 582, 2
+  size: 177, 93
+  orig: 179, 95
+  offset: 1, 1
+  index: -1
+Knife
+  rotate: false
+  xy: 2, 235
+  size: 164, 613
+  orig: 166, 615
+  offset: 1, 1
+  index: -1
+Left Downer Arm
+  rotate: false
+  xy: 2352, 604
+  size: 116, 174
+  orig: 118, 176
+  offset: 1, 1
+  index: -1
+Left Downer Leg
+  rotate: false
+  xy: 1363, 680
+  size: 109, 228
+  orig: 111, 230
+  offset: 1, 1
+  index: -1
+Left Feet
+  rotate: false
+  xy: 168, 258
+  size: 217, 140
+  orig: 219, 142
+  offset: 1, 1
+  index: -1
+Left Hand A Back Pink
+  rotate: true
+  xy: 3589, 615
+  size: 105, 112
+  orig: 107, 114
+  offset: 1, 1
+  index: -1
+Left Hand A Back Yellow
+  rotate: true
+  xy: 3703, 615
+  size: 105, 112
+  orig: 107, 114
+  offset: 1, 1
+  index: -1
+Left Hand A Front Pink
+  rotate: true
+  xy: 683, 391
+  size: 76, 89
+  orig: 78, 91
+  offset: 1, 1
+  index: -1
+Left Hand A Front Yellow
+  rotate: false
+  xy: 1761, 471
+  size: 76, 89
+  orig: 78, 91
+  offset: 1, 1
+  index: -1
+Left Hand B Pink
+  rotate: false
+  xy: 1025, 342
+  size: 92, 157
+  orig: 94, 159
+  offset: 1, 1
+  index: -1
+Left Hand B Yellow
+  rotate: true
+  xy: 1474, 582
+  size: 92, 157
+  orig: 94, 159
+  offset: 1, 1
+  index: -1
+Left Hand C Pink
+  rotate: true
+  xy: 3856, 723
+  size: 120, 137
+  orig: 122, 139
+  offset: 1, 1
+  index: -1
+Left Hand C Yellow
+  rotate: true
+  xy: 1349, 447
+  size: 120, 137
+  orig: 122, 139
+  offset: 1, 1
+  index: -1
+Left Hand D Pink
+  rotate: false
+  xy: 581, 263
+  size: 125, 116
+  orig: 127, 118
+  offset: 1, 1
+  index: -1
+Left Hand D Yellow
+  rotate: true
+  xy: 1513, 322
+  size: 125, 116
+  orig: 127, 118
+  offset: 1, 1
+  index: -1
+Left Hand Pink
+  rotate: false
+  xy: 1778, 562
+  size: 105, 112
+  orig: 107, 114
+  offset: 1, 1
+  index: -1
+Left Hand Yellow
+  rotate: false
+  xy: 1885, 565
+  size: 105, 112
+  orig: 107, 114
+  offset: 1, 1
+  index: -1
+Left Knee
+  rotate: false
+  xy: 1281, 320
+  size: 134, 125
+  orig: 136, 127
+  offset: 1, 1
+  index: -1
+Left Pack
+  rotate: false
+  xy: 1119, 327
+  size: 160, 134
+  orig: 162, 136
+  offset: 1, 1
+  index: -1
+Left Upper Arm
+  rotate: true
+  xy: 1119, 463
+  size: 120, 228
+  orig: 122, 230
+  offset: 1, 1
+  index: -1
+Left Upper Leg
+  rotate: true
+  xy: 679, 864
+  size: 158, 402
+  orig: 160, 404
+  offset: 1, 1
+  index: -1
+Pink Ball
+  rotate: false
+  xy: 3282, 710
+  size: 138, 133
+  orig: 140, 135
+  offset: 1, 1
+  index: -1
+Pink Dick Left
+  rotate: true
+  xy: 387, 263
+  size: 116, 192
+  orig: 116, 192
+  offset: 0, 0
+  index: -1
+Pink Dick Right
+  rotate: true
+  xy: 467, 381
+  size: 86, 214
+  orig: 86, 214
+  offset: 0, 0
+  index: -1
+Right Downer Arm
+  rotate: true
+  xy: 582, 97
+  size: 164, 142
+  orig: 166, 144
+  offset: 1, 1
+  index: -1
+Right Downer Leg
+  rotate: false
+  xy: 2039, 645
+  size: 126, 201
+  orig: 128, 203
+  offset: 1, 1
+  index: -1
+Right Feet
+  rotate: true
+  xy: 1624, 451
+  size: 127, 135
+  orig: 129, 137
+  offset: 1, 1
+  index: -1
+Right Hand Back Finger Pink
+  rotate: false
+  xy: 2761, 787
+  size: 72, 40
+  orig: 74, 42
+  offset: 1, 1
+  index: -1
+Right Hand Back Finger Yellow
+  rotate: true
+  xy: 1992, 605
+  size: 72, 40
+  orig: 74, 42
+  offset: 1, 1
+  index: -1
+Right Hand Pink
+  rotate: false
+  xy: 3562, 722
+  size: 145, 121
+  orig: 147, 123
+  offset: 1, 1
+  index: -1
+Right Hand Pink B
+  rotate: false
+  xy: 1363, 569
+  size: 109, 109
+  orig: 111, 111
+  offset: 1, 1
+  index: -1
+Right Hand Yellow
+  rotate: false
+  xy: 3709, 722
+  size: 145, 121
+  orig: 147, 123
+  offset: 1, 1
+  index: -1
+Right Hand Yellow B
+  rotate: false
+  xy: 1631, 340
+  size: 109, 109
+  orig: 111, 111
+  offset: 1, 1
+  index: -1
+Right Knee
+  rotate: false
+  xy: 1488, 449
+  size: 134, 131
+  orig: 136, 133
+  offset: 1, 1
+  index: -1
+Right Pack
+  rotate: true
+  xy: 2992, 512
+  size: 156, 142
+  orig: 158, 144
+  offset: 1, 1
+  index: -1
+Right Upper Arm
+  rotate: true
+  xy: 2761, 829
+  size: 193, 285
+  orig: 195, 287
+  offset: 1, 1
+  index: -1
+Right Upper Leg
+  rotate: true
+  xy: 1483, 852
+  size: 170, 373
+  orig: 172, 375
+  offset: 1, 1
+  index: -1
+Stick
+  rotate: true
+  xy: 1083, 910
+  size: 112, 398
+  orig: 114, 400
+  offset: 1, 1
+  index: -1
+Toung Pink
+  rotate: false
+  xy: 4024, 944
+  size: 58, 78
+  orig: 60, 80
+  offset: 1, 1
+  index: -1
+Toung Yellow
+  rotate: false
+  xy: 4024, 864
+  size: 58, 78
+  orig: 60, 80
+  offset: 1, 1
+  index: -1
+Yellow Balls
+  rotate: false
+  xy: 3422, 710
+  size: 138, 133
+  orig: 140, 135
+  offset: 1, 1
+  index: -1
+Yellow Dick Left
+  rotate: false
+  xy: 358, 64
+  size: 116, 192
+  orig: 116, 192
+  offset: 0, 0
+  index: -1
+Yellow Dick Right
+  rotate: true
+  xy: 809, 413
+  size: 86, 214
+  orig: 86, 214
+  offset: 0, 0
+  index: -1
