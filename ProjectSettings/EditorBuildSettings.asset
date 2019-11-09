@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/zuowaman/flag.unity
+    guid: eabd214de2d863e40a499c6b8f468b99
+  - enabled: 1
+    path: Assets/LinchDance.unity
+    guid: 13496d3f7d48ae84d905a5b7d833ea29
+  - enabled: 1
+    path: Assets/LinchRace.unity
+    guid: 908c8ac0ed829af458581707006c15df
+  - enabled: 1
+    path: Assets/NNNNN/Flower/millionflowercilinder.unity
+    guid: e46a2915f5c8fd7489f6f57a30bdf475
   m_configObjects: {}

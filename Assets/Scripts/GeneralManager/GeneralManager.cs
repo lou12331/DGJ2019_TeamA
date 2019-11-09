@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using HutongGames.PlayMaker;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -15,6 +16,7 @@ public class GeneralManager : MonoBehaviour
     bool isFirst;
     public int Player1Score = 0;
     public int Player2Score = 0;
+    public int nowPlayingIndex = 0;
 
     private void Awake()
     {
@@ -51,10 +53,36 @@ public class GeneralManager : MonoBehaviour
                 Player2Score++;
                 break;
         }
+        GetComponent<PlayMakerFSM>().SendEvent("Next");
+        nowPlayingIndex++;
     }
-    public void LoadScene()
+    public void LetPlayMiniGame()
     {
+        LoadScene(SelectedCards[nowPlayingIndex]);
+    }
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine(loadScene(sceneName));
+    }
+    IEnumerator loadScene(string sceneName)
+    {
+        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        
+        yield break;
+    }
+    public void MiniGameOver()
+    {
+        UnloadScene(SelectedCards[nowPlayingIndex - 1]);
+    }
+    public void UnloadScene(string sceneName)
+    {
+        StartCoroutine(unloadScene(sceneName));
+    }
+    IEnumerator unloadScene(string sceneName)
+    {
+        AsyncOperation async = SceneManager.UnloadSceneAsync(sceneName);
 
+        yield break;
     }
 }
 
