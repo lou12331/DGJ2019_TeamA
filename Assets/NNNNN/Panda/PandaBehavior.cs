@@ -46,7 +46,7 @@ public class PandaBehavior : MonoBehaviour
     {
         isCo = true;
         SetWin2();
-        transform.DOShakePosition(0.5f, 1);
+        transform.DOShakePosition(0.5f, 3,30);
         yield return new WaitForSeconds(1);
         while(isCo)
         {

@@ -3291,7 +3291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10aa3fc5bb6a9364ab90acc00f12d934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAnswer: 1
+  isAnswer: 0
 --- !u!61 &1749177977
 BoxCollider2D:
   m_ObjectHideFlags: 0

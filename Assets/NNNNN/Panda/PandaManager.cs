@@ -12,6 +12,7 @@ public class PandaManager : MonoBehaviour
     public bool p1W=false;
     public bool p2W=false;
     public PandaBehavior pa;
+    Coroutine co;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +59,8 @@ public class PandaManager : MonoBehaviour
         {
             if(pa)
             {
-                StartCoroutine(pa.Anim());
+                if(co == null)
+                    co = StartCoroutine(pa.Anim());
                 //pa.SetWin2();
             }
             else
