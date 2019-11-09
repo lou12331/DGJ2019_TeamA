@@ -27,10 +27,12 @@ public class FlowerManager : MonoBehaviour
                 if(p1.win)
                 {
                     text.text = p1Wintext;
+                    Debug.LogError("Todo P1 Win");
                 }
                 if (p2.win)
                 {
                     text.text = p2Wintext;
+                    Debug.LogError("Todo P2 Win");
                 }
                 IsOn = false;
             }
