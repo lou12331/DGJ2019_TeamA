@@ -49,19 +49,6 @@ namespace LinchLab
                 rigidbody.AddForce(Vector3.up * jump, ForceMode2D.Impulse);
             }
 
-            if (isForceBack)
-            {
-                StartCoroutine(unlockForceBack());
-                rigidbody.AddForce(Vector3.left * jump, ForceMode2D.Impulse);
-            }
-        }
-
-        private bool isForceBack = false;
-
-        IEnumerator unlockForceBack()
-        {
-            yield return new WaitForSeconds(0.1f);
-            isForceBack = false;
         }
 
         IEnumerator unlockJump()
@@ -69,23 +56,6 @@ namespace LinchLab
             allowJump = false;
             yield return new WaitForSeconds(1.5f);
             allowJump = true;
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.tag == "Barrier")
-            {
-                isForceBack = true;
-            }
-        }
-
-        void FixedUpdate()
-        {
-            if (!isForceBack)
-            {
-                Vector3 move = new Vector3(SYS.input.axis_horizontal_a * speed, rigidbody.velocity.y, 0f);
-                rigidbody.velocity = move;
-            }
         }
     }
 }
