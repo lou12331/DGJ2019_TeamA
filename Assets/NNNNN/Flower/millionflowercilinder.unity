@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
-  deltaAngle: 10
+  deltaAngle: 1
   inputA: 97
   inputB: 100
   next: {fileID: 0}
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
-  deltaAngle: 10
+  deltaAngle: 1
   inputA: 97
   inputB: 100
   next: {fileID: 1387553628}
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
-  deltaAngle: 10
+  deltaAngle: 1
   inputA: 0
   inputB: 0
   next: {fileID: 1878307538}
@@ -1594,7 +1594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
-  deltaAngle: 10
+  deltaAngle: 1
   inputA: 97
   inputB: 100
   next: {fileID: 1544957001}
@@ -1754,7 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
-  deltaAngle: 10
+  deltaAngle: 1
   inputA: 276
   inputB: 275
   next: {fileID: 599472700472112739}
@@ -1888,7 +1888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
-  deltaAngle: 10
+  deltaAngle: 1
   inputA: 276
   inputB: 275
   next: {fileID: 599472699727522040}
@@ -2159,7 +2159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
-  deltaAngle: 10
+  deltaAngle: 1
   inputA: 276
   inputB: 275
   next: {fileID: 599472700578953590}
@@ -2210,7 +2210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
-  deltaAngle: 10
+  deltaAngle: 1
   inputA: 276
   inputB: 275
   next: {fileID: 0}
