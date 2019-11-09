@@ -1,0 +1,118 @@
+
+inuji.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Back Downer Feet
+  rotate: false
+  xy: 2, 90
+  size: 74, 83
+  orig: 76, 85
+  offset: 1, 1
+  index: -1
+Back Downer Leg
+  rotate: false
+  xy: 78, 111
+  size: 42, 62
+  orig: 44, 64
+  offset: 1, 1
+  index: -1
+Back Middle Leg
+  rotate: false
+  xy: 190, 412
+  size: 50, 87
+  orig: 52, 89
+  offset: 1, 1
+  index: -1
+Back Upper Leg
+  rotate: false
+  xy: 558, 657
+  size: 126, 220
+  orig: 128, 222
+  offset: 1, 1
+  index: -1
+Balls
+  rotate: false
+  xy: 686, 728
+  size: 71, 61
+  orig: 73, 63
+  offset: 1, 1
+  index: -1
+DK
+  rotate: false
+  xy: 190, 501
+  size: 119, 91
+  orig: 121, 93
+  offset: 1, 1
+  index: -1
+Dog Body
+  rotate: false
+  xy: 2, 594
+  size: 554, 283
+  orig: 554, 323
+  offset: 0, 37
+  index: -1
+Down Mouth
+  rotate: false
+  xy: 558, 597
+  size: 113, 58
+  orig: 115, 60
+  offset: 1, 1
+  index: -1
+Front Downer Leg
+  rotate: false
+  xy: 686, 791
+  size: 102, 86
+  orig: 104, 88
+  offset: 1, 1
+  index: -1
+Front Feet
+  rotate: false
+  xy: 311, 543
+  size: 84, 49
+  orig: 86, 51
+  offset: 1, 1
+  index: -1
+Front Middle Leg
+  rotate: false
+  xy: 2, 3
+  size: 31, 85
+  orig: 33, 87
+  offset: 1, 1
+  index: -1
+Front Upper Leg
+  rotate: false
+  xy: 2, 175
+  size: 118, 196
+  orig: 120, 198
+  offset: 1, 1
+  index: -1
+Muscle
+  rotate: false
+  xy: 122, 222
+  size: 41, 50
+  orig: 41, 50
+  offset: 0, 0
+  index: -1
+Tail
+  rotate: false
+  xy: 2, 373
+  size: 186, 219
+  orig: 188, 221
+  offset: 1, 1
+  index: -1
+Teeth Down
+  rotate: false
+  xy: 790, 834
+  size: 89, 43
+  orig: 91, 45
+  offset: 1, 1
+  index: -1
+Teeth Up
+  rotate: true
+  xy: 122, 274
+  size: 97, 41
+  orig: 99, 43
+  offset: 1, 1
+  index: -1
