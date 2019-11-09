@@ -9,12 +9,12 @@ namespace LinchLab
         private Rigidbody2D rigidbody;
         public float speed = 10f;
         public float jump = 30f;
-        private SpineHelper spine;
         private bool allowJump = true;
+        private Animator ani;
         private void Awake()
         {
             rigidbody = GetComponent<Rigidbody2D>();
-            spine = GetComponent<SpineHelper>();
+            ani = GetComponent<Animator>();
         }
 
         void Update()
@@ -36,11 +36,9 @@ namespace LinchLab
 
             if (SYS.input.rightKeyA || SYS.input.leftKeyA)
             {
-                spine.setAnimationLoop("Running");
             }
             else
             {
-                spine.setAnimation("Idle");
             }
 
             if (InputManager.instance.GetAxisDownVerticalA() && allowJump)
@@ -53,9 +51,17 @@ namespace LinchLab
 
         IEnumerator unlockJump()
         {
+            ani.SetBool("isRunning", true);
             allowJump = false;
             yield return new WaitForSeconds(1.5f);
             allowJump = true;
+            ani.SetBool("isRunning", false);
+        }
+
+        void FixedUpdate()
+        {
+            Vector3 move = new Vector3(SYS.input.axis_horizontal_a * speed, rigidbody.velocity.y, 0f);
+            rigidbody.velocity = move;
         }
     }
 }
