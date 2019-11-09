@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace LinchLab
-
 {
-
     public class RacePlayerCharacterControlA : MonoBehaviour
     {
         private Rigidbody2D rigidbody;
@@ -19,8 +16,6 @@ namespace LinchLab
             rigidbody = GetComponent<Rigidbody2D>();
             spine = GetComponent<SpineHelper>();
         }
-
-
 
         void Update()
         {
@@ -53,19 +48,14 @@ namespace LinchLab
                 StartCoroutine(unlockJump());
                 rigidbody.AddForce(Vector3.up * jump, ForceMode2D.Impulse);
             }
+
         }
 
         IEnumerator unlockJump()
         {
             allowJump = false;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1.5f);
             allowJump = true;
-        }
-
-        void FixedUpdate()
-        {
-            Vector3 move = new Vector3(SYS.input.axis_horizontal_a * speed, rigidbody.velocity.y, 0f);
-            rigidbody.velocity = move;
         }
     }
 }
