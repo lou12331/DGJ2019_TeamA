@@ -21,7 +21,8 @@ public class RainBowManager : MonoBehaviour
     {
         if(p1 && p2)
         {
-            if(p1.isWin || p2.isWin)
+      
+            if (p1.isWin || p2.isWin)
             {
                 if (p1.isWin)
                 {
@@ -37,7 +38,16 @@ public class RainBowManager : MonoBehaviour
                 if (current) Destroy(current,1);
                 return;
             }
-            
+
+            if (p1.currentTime <= 0)
+            {
+                p2.isWin = true;
+            }
+            if (p2.currentTime <= 0)
+            {
+                p1.isWin = true;
+            }
+
         }
         else
         {

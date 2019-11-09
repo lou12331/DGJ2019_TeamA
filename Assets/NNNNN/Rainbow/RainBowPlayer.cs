@@ -26,7 +26,7 @@ public class RainBowPlayer : MonoBehaviour
         if(currentTime >= targetTime)
         {
             isWin = true;
-           
+            return;
         }
 
         if(p1)

@@ -243,8 +243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   p1: 0
-  targetTime: 3
-  currentTime: 0
+  targetTime: 6
+  currentTime: 3
   isWin: 0
   animDelayTime: 0.1
   sps:
@@ -433,8 +433,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   p1: 1
-  targetTime: 3
-  currentTime: 0
+  targetTime: 6
+  currentTime: 3
   isWin: 0
   animDelayTime: 0.1
   sps:
