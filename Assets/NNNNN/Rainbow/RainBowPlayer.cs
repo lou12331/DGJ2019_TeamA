@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -47,16 +48,18 @@ public class RainBowPlayer : MonoBehaviour
 
     private void SetOwner()
     {
-        var tag = manager.current.GetComponent<RainbowTag>();
+        var tag = manager.current?.GetComponent<RainbowTag>();
         if (tag.HasOwner == null)
         {
             tag.HasOwner = this.gameObject;
             if(tag.tag =="wine")
             {
+                GetComponent<Renderer>().material.DOColor(Color.red, 0.5f).SetLoops(2, LoopType.Yoyo);
                 currentTime--;
             }
             if (tag.tag == "water")
             {
+                GetComponent<Renderer>().material.DOColor(Color.blue, 0.5f).SetLoops(2, LoopType.Yoyo);
                 currentTime++;
             }
         }
