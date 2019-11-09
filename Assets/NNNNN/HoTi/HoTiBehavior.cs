@@ -26,7 +26,6 @@ public class HoTiBehavior : MonoBehaviour
         }
         if(allHit)
         {
-            Debug.Log("YA");
             canMove = false;
         }
     }
