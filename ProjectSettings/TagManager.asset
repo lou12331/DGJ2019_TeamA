@@ -16,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - MENUUI
-  - 
+  - flower1
+  - flower2
   - 
   - 
   - 
@@ -53,6 +53,6 @@ TagManager:
   - name: Barrier
     uniqueID: 97315081
     locked: 0
-  - name: New Layer
+  - name: UI
     uniqueID: 2841278735
     locked: 0
