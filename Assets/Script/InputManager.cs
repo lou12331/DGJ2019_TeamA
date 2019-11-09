@@ -4,7 +4,6 @@ using UnityEngine;
 
 
 namespace LinchLab
-
 {
     public class InputManager : MonoBehaviour
     {

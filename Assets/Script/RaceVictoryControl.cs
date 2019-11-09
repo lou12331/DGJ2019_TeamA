@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaceVictoryControl : MonoBehaviour
+namespace LinchLab
 {
-    void OnTriggerEnter2D(Collider2D collider)
+    public class RaceVictoryControl : MonoBehaviour
     {
-        if (collider.tag == "PlayerA")
-            Debug.Log("PlayerA Wins");
-        else if (collider.tag == "PlayerB")
-            Debug.Log("PlayerB Wins");
+        void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (collider.tag == "PlayerA")
+                Debug.Log("PlayerA Wins");
+            else if (collider.tag == "PlayerB")
+                Debug.Log("PlayerB Wins");
+        }
     }
 }
