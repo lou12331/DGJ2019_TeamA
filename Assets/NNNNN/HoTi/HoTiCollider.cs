@@ -5,6 +5,7 @@ using UnityEngine;
 public class HoTiCollider : MonoBehaviour
 {
     public bool IsHit = false;
+    public string key;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class HoTiCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(key == collision.GetComponent<HoTiCollider>().key)
         IsHit = true;
     }
     private void OnTriggerExit2D(Collider2D collision)

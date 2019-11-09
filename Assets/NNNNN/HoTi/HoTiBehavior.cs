@@ -7,12 +7,15 @@ public class HoTiBehavior : MonoBehaviour
 {
     public List<HoTiCollider> co;
     public bool canMove=true;
+    public GameObject SHOW;
      
     // Start is called before the first frame update
     void Start()
     {
         var cc = GetComponentsInChildren<HoTiCollider>();
         co = cc.ToList();
+        SHOW = transform.Find("777").gameObject;
+        SHOW.SetActive(false);
     }
 
     // Update is called once per frame

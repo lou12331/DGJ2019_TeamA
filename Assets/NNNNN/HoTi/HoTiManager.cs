@@ -19,6 +19,10 @@ public class HoTiManager : MonoBehaviour
     {
         if(ValidateWin(listA) || ValidateWin(listB))
         {
+            if(ValidateWin(listA))
+            {
+
+            }
             Debug.Log(ValidateWin(listA) + ":" + ValidateWin(listB));
             return;
         }
@@ -29,10 +33,10 @@ public class HoTiManager : MonoBehaviour
 
     private void DoDoDo1(List<HoTiBehavior> list)
     {
-        
-        Debug.Log(ValidateWin(list) + "win A");
+        ValidateShow(list[indexa]);
         if (list[indexa].canMove)
         {
+            if(list[indexa].SHOW)
             if (SYS.input.key_confirm_a)
             {
                 //Rotate
@@ -42,6 +46,7 @@ public class HoTiManager : MonoBehaviour
             if (SYS.input.key_cancel_a)
             {
                 //change list
+                list[indexa].SHOW.SetActive(false);
                 indexa++;
                 indexa %= list.Count;
                 Debug.Log("key_cancel_a");
@@ -72,47 +77,60 @@ public class HoTiManager : MonoBehaviour
         }
     }
 
+    private void ValidateShow(HoTiBehavior Hoti)
+    {
+        if (Hoti == null) return;
+        if(Hoti.canMove)
+        {
+            Hoti.SHOW.SetActive(true);
+        }
+        else
+        {
+            Hoti.SHOW.SetActive(false);
+        }
+    }
+
     private void DoDoDo2(List<HoTiBehavior> list)
     {
-
-        Debug.Log(ValidateWin(list) + "win A");
-        if (list[indexa].canMove)
+        ValidateShow(list[indexb]);
+        if (list[indexb].canMove)
         {
             if (SYS.input.key_confirm_b)
             {
                 //Rotate
-                list[indexa].transform.localEulerAngles += new Vector3(0, 0, 1) * 90;
+                list[indexb].transform.localEulerAngles += new Vector3(0, 0, 1) * 90;
                 Debug.Log("key_confirm_b");
             }
             if (SYS.input.key_cancel_b)
             {
                 //change list
-                indexa++;
-                indexa %= list.Count;
+                list[indexb].SHOW.SetActive(false);
+                indexb++;
+                indexb %= list.Count;
                 Debug.Log("key_cancel_b");
             }
             if (SYS.input.upKeyB)
             {
-                list[indexa].transform.localPosition += Vector3.up * moveFactor;
+                list[indexb].transform.localPosition += Vector3.up * moveFactor;
             }
             if (SYS.input.downKeyB)
             {
-                list[indexa].transform.localPosition += Vector3.down * moveFactor;
+                list[indexb].transform.localPosition += Vector3.down * moveFactor;
             }
             if (SYS.input.leftKeyB)
             {
-                list[indexa].transform.localPosition += Vector3.left * moveFactor;
+                list[indexb].transform.localPosition += Vector3.left * moveFactor;
             }
             if (SYS.input.rightKeyB)
             {
-                list[indexa].transform.localPosition += Vector3.right * moveFactor;
+                list[indexb].transform.localPosition += Vector3.right * moveFactor;
             }
         }
         else
         {
 
-            indexa++;
-            indexa %= listA.Count;
+            indexb++;
+            indexb %= listB.Count;
             return;
         }
     }
