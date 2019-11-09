@@ -21,7 +21,11 @@ public class HoTiManager : MonoBehaviour
         {
             if(ValidateWin(listA))
             {
-
+                Debug.LogError("TODO:A win");
+            }
+            if (ValidateWin(listB))
+            {
+                Debug.LogError("TODO:B win");
             }
             Debug.Log(ValidateWin(listA) + ":" + ValidateWin(listB));
             return;
