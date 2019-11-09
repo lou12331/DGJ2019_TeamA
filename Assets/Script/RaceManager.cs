@@ -8,6 +8,7 @@ namespace LinchLab
 {
     public class RaceManager : MonoBehaviour
     {
+       public static  RaceManager instance;
 
         public GameObject txtMsg;
         public GameObject txtHintA;
@@ -19,6 +20,11 @@ namespace LinchLab
         public GameObject end_b;
 
         private bool showDistance = false;
+
+        private void Awake()
+        {
+            instance = this;
+        }
 
         private void Update()
         {
@@ -72,7 +78,7 @@ namespace LinchLab
             showDistance = true;
         }
 
-        public void showGameEnd(string msg = "")
+        public void setGameEnd(string msg = "")
         {
             showDistance = false;
             player_a.GetComponent<RacePlayerCharacterControlA>().enabled = false;

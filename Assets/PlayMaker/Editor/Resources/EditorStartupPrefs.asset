@@ -16,5 +16,9 @@ MonoBehaviour:
   playmakerVersion: 
   showWelcomeScreen: 0
   showUpgradeGuide: 0
+<<<<<<< HEAD
   lastAutoUpdateSignature: 2019.2.11f1__C:/Users/Lemino/Desktop/Drunk_Game_Jam/DGJ2019_TeamA/Assets__0.0.0.0
+=======
+  lastAutoUpdateSignature: 2019.2.11f1__C:/UnityProject/DGJ2019_TeamA/Assets__0.0.0.0
+>>>>>>> bbd5bf86564ccaa024ea7539847a2108ef407aa2
   useLegacyNetworking: 0

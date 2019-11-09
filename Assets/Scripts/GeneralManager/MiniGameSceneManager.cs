@@ -8,7 +8,11 @@ using UnityEditor;
 public class MiniGameSceneManager : MonoBehaviour
 {
     public List<string> MiniGameScenes;
-
+    public Sprite CardBackSprite;
+    public List<Sprite> GameCardSprites;
+    public List<string> GameCardNames;
+    [TextArea()]
+    public List<string> GameCardDescriptions;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +22,7 @@ public class MiniGameSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            string[] result = GiveMeRandomSceneArray(3, new List<string> { "a", "b" });
-            foreach (string item in result)
-            {
-                Debug.Log(item);
-            }
-        }
+
             
     }
     public string[] GiveMeRandomSceneArray(int count, List<string> except)

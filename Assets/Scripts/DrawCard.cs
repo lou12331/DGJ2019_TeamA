@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using HutongGames.PlayMaker;
+using DG.Tweening;
 
 public class DrawCard : MonoBehaviour
 {
@@ -57,7 +58,7 @@ public class DrawCard : MonoBehaviour
             SelectOutline_Player1.transform.position = CardImages_Player1[SelectingID_Player1].transform.position;
             SelectOutline_Player2.transform.position = CardImages_Player2[SelectingID_Player2].transform.position;
 
-            if (SelectedCard_Player1.Count >=3 && SelectedCard_Player2.Count>=3)
+            if (SelectedCard_Player1.Count >= 3 && SelectedCard_Player2.Count >= 3)
             {
                 StartSelect = false;
                 SelectEnd();
@@ -80,11 +81,17 @@ public class DrawCard : MonoBehaviour
     {
         yield return new WaitForSeconds(dTime);
         Draw();
+        MiniGameSceneManager miniGameScene = GeneralManager.Instance.GetComponent<MiniGameSceneManager>();
         for (int i = 0; i < 6; i++)
         {
-            CardImages_Player1[i].transform.GetComponentInChildren<Text>().text = DrawCards_Player1[i];
-            CardImages_Player2[i].transform.GetComponentInChildren<Text>().text = DrawCards_Player2[i];
-            yield return new WaitForSeconds(0.2f);
+            //CardImages_Player1[i].transform.GetComponentInChildren<Text>().text = DrawCards_Player1[i];
+            //CardImages_Player2[i].transform.GetComponentInChildren<Text>().text = DrawCards_Player2[i];
+            CardImages_Player1[i].transform.DOLocalRotate(new Vector3(0, -360, 0), 1, RotateMode.FastBeyond360);
+            CardImages_Player2[i].transform.DOLocalRotate(new Vector3(0, -360, 0), 1, RotateMode.FastBeyond360);
+            yield return new WaitForSeconds(0.5f);
+            CardImages_Player1[i].sprite = miniGameScene.GameCardSprites[miniGameScene.MiniGameScenes.FindIndex(x => x == DrawCards_Player1[i])];
+            CardImages_Player2[i].sprite = miniGameScene.GameCardSprites[miniGameScene.MiniGameScenes.FindIndex(x => x == DrawCards_Player2[i])];
+
 
         }
         StartSelect = true;
@@ -181,7 +188,18 @@ public class DrawCard : MonoBehaviour
             if (haveSelect) return;
 
             SelectedCard_Player1.Add(DrawCards_Player1[id]);
-            SlotImages_Player1[SelectedCard_Player1.Count - 1].transform.GetComponentInChildren<Text>().text = DrawCards_Player1[id];
+            GameObject TempObj = Instantiate(CardImages_Player1[id].gameObject, transform);
+            TempObj.transform.position = CardImages_Player1[id].transform.position;
+            CardImages_Player1[id].color = new Color(0.5f, 0.5f, 0.5f);
+            int i = SelectedCard_Player1.FindIndex(x => x == DrawCards_Player1[id]);
+            TempObj.transform.DOMove(SlotImages_Player1[i].transform.position, 1f).SetEase(Ease.OutCirc).OnComplete(() =>
+             {
+                 Destroy(TempObj);
+                 SlotImages_Player1[i].sprite = CardImages_Player1[id].sprite;
+                 SlotImages_Player1[i].color = Color.white;
+                 //SlotImages_Player1[SelectedCard_Player1.Count - 1].transform.GetComponentInChildren<Text>().text = DrawCards_Player1[id];
+             });
+
 
         }
         if (PlayerID == 2)
@@ -198,12 +216,28 @@ public class DrawCard : MonoBehaviour
             if (haveSelect) return;
 
             SelectedCard_Player2.Add(DrawCards_Player2[id]);
-            SlotImages_Player2[SelectedCard_Player2.Count-1].transform.GetComponentInChildren<Text>().text = DrawCards_Player2[id];
+            GameObject TempObj = Instantiate(CardImages_Player2[id].gameObject, transform);
+            TempObj.transform.position = CardImages_Player2[id].transform.position;
+            CardImages_Player2[id].color = new Color(0.5f, 0.5f, 0.5f);
+            int i = SelectedCard_Player2.FindIndex(x => x == DrawCards_Player2[id]);
+            TempObj.transform.DOMove(SlotImages_Player2[i].transform.position, 1f).SetEase(Ease.OutCirc).OnComplete(() =>
+            {
+                Destroy(TempObj);
+                SlotImages_Player2[i].sprite = CardImages_Player2[id].sprite;
+                SlotImages_Player2[i].color = Color.white;
+                //SlotImages_Player2[SelectedCard_Player2.Count - 1].transform.GetComponentInChildren<Text>().text = DrawCards_Player2[id];
+            });
+
         }
     }
 
     void SelectEnd()
     {
+        StartCoroutine(SelectEndWait());
+    }
+    IEnumerator SelectEndWait()
+    {
+        yield return new WaitForSeconds(1f);
         GeneralManager.Instance.SelectedCards = new List<string>();
         foreach (string item in SelectedCard_Player1)
         {
