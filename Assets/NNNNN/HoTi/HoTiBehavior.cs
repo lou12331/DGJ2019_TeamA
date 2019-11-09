@@ -18,15 +18,24 @@ public class HoTiBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove) return;
         bool allHit = true;
         foreach (var c in co)
         {
-
             allHit = c.IsHit && allHit;
         }
-        if(allHit)
+        if(allHit && co != null && co.Count != 0)
         {
-            canMove = false;
+            Debug.Log(Mathf.RoundToInt(transform.eulerAngles.z));
+            if(Mathf.RoundToInt(transform.eulerAngles.z % 360) == 0)
+            {
+
+                this.canMove = false;
+            }
+
+            
         }
+
+
     }
 }

@@ -20,7 +20,10 @@ public class HoTiCollider : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IsHit = true;
-        Debug.Log(collision.gameObject.name);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        IsHit = false;
     }
 
 
