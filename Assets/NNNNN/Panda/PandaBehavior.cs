@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PandaBehavior : MonoBehaviour
 {
@@ -24,18 +25,18 @@ public class PandaBehavior : MonoBehaviour
         
     }
 
-    [ContextMenu("test1")]
+    [ContextMenu("ResetPanda")]
     public void SetNormal()
     {
         mySp.sprite = sps[0];
     }
-    [ContextMenu("test2")]
+    [ContextMenu("SetAnswerPanda")]
     public void SetWin()
     {
         mySp.sprite = sps[1];
         GetComponent<PandaCollider>().isAnswer = true;
     }
-    [ContextMenu("test3")]
+    [ContextMenu("testWin")]
     public void SetWin2()
     {
         mySp.sprite = sps[2];
@@ -45,6 +46,7 @@ public class PandaBehavior : MonoBehaviour
     {
         isCo = true;
         SetWin2();
+        transform.DOShakePosition(0.5f, 1);
         yield return new WaitForSeconds(1);
         while(isCo)
         {
