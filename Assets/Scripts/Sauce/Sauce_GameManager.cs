@@ -11,6 +11,10 @@ public class Sauce_GameManager : MonoBehaviour
     public SaucePlayer Player2;
     public GameObject LiYang;
     public Sprite sp;
+    public AudioClip AppleSound;
+    public AudioClip OnionSound;
+    public AudioClip SauceSound;
+    public AudioSource AudioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +55,9 @@ public class Sauce_GameManager : MonoBehaviour
                     if (Player.Tweener.IsPlaying())
                     {
                         Player.Tweener.Kill();
+                        Player.Apple.GetComponent<Shake>().StopShake();
                         Player.Apple.GetComponent<Animator>().SetTrigger("Finish");
+                        AudioSource.PlayOneShot(AppleSound);
                         StartCoroutine(WaitAnimation(Player, Player.Onion));
                     }
                 }
@@ -64,7 +70,9 @@ public class Sauce_GameManager : MonoBehaviour
                     if (Player.Tweener.IsPlaying())
                     {
                         Player.Tweener.Kill();
+                        Player.Onion.GetComponent<Shake>().StopShake();
                         Player.Onion.GetComponent<Animator>().SetTrigger("Finish");
+                        AudioSource.PlayOneShot(OnionSound);
                         StartCoroutine(WaitAnimation(Player, Player.Sauce));
                     }
                 }
@@ -96,6 +104,16 @@ public class Sauce_GameManager : MonoBehaviour
         Player.SafeZone.anchoredPosition = new Vector2(r1, 0);
         Player.Ping.anchoredPosition = new Vector2(0, 0);
         GoForward(Player);
+
+        
+
+        if (Player.LV == 2)
+        {
+            AudioSource.clip = SauceSound;
+            AudioSource.loop = true;
+            AudioSource.pitch = 2.46f;
+            AudioSource.Play();
+        }
     }
     void GoForward(SaucePlayer Player)
     {
@@ -118,6 +136,16 @@ public class Sauce_GameManager : MonoBehaviour
             GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
         else
             GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+    }
+    IEnumerator LV3Sound()
+    {
+        
+        while (Player1.LV == 3 || Player2.LV == 3)
+        {
+            
+            //yield return new WaitForSeconds(0.1f);
+        }
+        yield break;
     }
 }
 [System.Serializable]
