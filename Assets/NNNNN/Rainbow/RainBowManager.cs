@@ -10,6 +10,7 @@ public class RainBowManager : MonoBehaviour
     public Transform spawnPoint;
     public GameObject current;
     public RainBowPlayer p1, p2;
+    public Object vomitSF;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class RainBowManager : MonoBehaviour
       
             if (p1.isWin || p2.isWin)
             {
+                if(vomitSF == null) vomitSF=Instantiate(Resources.Load("vomit")); 
                 if (p1.isWin)
                 {
                     Debug.Log("p1Win");
