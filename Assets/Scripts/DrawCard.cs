@@ -32,6 +32,8 @@ public class DrawCard : MonoBehaviour
 
     public string[] DrawCards_Player1;
     public string[] DrawCards_Player2;
+    public AudioSource AudioSource;
+    public AudioClip PickCardSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +90,7 @@ public class DrawCard : MonoBehaviour
             //CardImages_Player2[i].transform.GetComponentInChildren<Text>().text = DrawCards_Player2[i];
             CardImages_Player1[i].transform.DOLocalRotate(new Vector3(0, -360, 0), 1, RotateMode.FastBeyond360);
             CardImages_Player2[i].transform.DOLocalRotate(new Vector3(0, -360, 0), 1, RotateMode.FastBeyond360);
+            AudioSource.PlayOneShot(PickCardSound);
             yield return new WaitForSeconds(0.5f);
             CardImages_Player1[i].sprite = miniGameScene.GameCardSprites[miniGameScene.MiniGameScenes.FindIndex(x => x == DrawCards_Player1[i])];
             CardImages_Player2[i].sprite = miniGameScene.GameCardSprites[miniGameScene.MiniGameScenes.FindIndex(x => x == DrawCards_Player2[i])];
@@ -187,6 +190,7 @@ public class DrawCard : MonoBehaviour
             }
             if (haveSelect) return;
 
+            AudioSource.PlayOneShot(PickCardSound);
             SelectedCard_Player1.Add(DrawCards_Player1[id]);
             GameObject TempObj = Instantiate(CardImages_Player1[id].gameObject, transform);
             TempObj.transform.position = CardImages_Player1[id].transform.position;
