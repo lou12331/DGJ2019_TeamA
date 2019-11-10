@@ -23,7 +23,7 @@ public class Click : MonoBehaviour,IPointerEnterHandler,IPointerDownHandler
     // Start is called before the first frame update
     void Start()
     {
-        Shake();
+        
     }
 
     // Update is called once per frame
@@ -31,8 +31,5 @@ public class Click : MonoBehaviour,IPointerEnterHandler,IPointerDownHandler
     {
         
     }
-    void Shake()
-    {
-        transform.DOShakePosition(ShakeDur, 0.1f).OnComplete(() => Shake());
-    }
+    
 }
