@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 public enum PlayerState
 {
     SpecialSkillActive,
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] KeyCode[] opcode=new KeyCode[]{KeyCode.W,KeyCode.S,KeyCode.A,KeyCode.D};
     [SerializeField] KeyCode attackCode;
     public bool p1;
-    
+    public Text text;
     // Start is called before the first frame update
     public PlayerState CurPlayerState;
     Rigidbody2D rigidbody=null;
@@ -109,15 +111,24 @@ public class Player : MonoBehaviour
         StopAllCoroutines();
         CurPlayerState=PlayerState.Traped;
         spriteRenderer.flipY = true;
+        if (p1)
+        {
+            text.text = "P2 Win";
+        }
+        else
+        {
+            text.text = "P1 Win";
+            
+        }
         if (GeneralManager.Instance)
         {
             if (p1)
             {
-                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
             }
             else
             {
-                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
             }
         }
       
@@ -135,6 +146,7 @@ public class Player : MonoBehaviour
     {
         spriteRenderer=GetComponent<SpriteRenderer>();
         rigidbody=GetComponent<Rigidbody2D>();
+        text.text = "";
     }
 
     // Update is called once per frame

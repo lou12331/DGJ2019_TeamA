@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
+using Text = UnityEngine.UI.Text;
 
 public class FlowerManager : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class FlowerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        text.text = "";
     }
 
     // Update is called once per frame
