@@ -10,6 +10,7 @@ public class GGmove : MonoBehaviour
     public List<GameObject> lsit;
     public static int index;
     public Text text;
+    bool yes;
     void Start() 
     {
         index = Random.Range(0, 5);
@@ -25,6 +26,7 @@ public class GGmove : MonoBehaviour
                 {
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
+                    Instantiate(Resources.Load("yes"));
                 }
                 break;
             case 1:
@@ -32,6 +34,7 @@ public class GGmove : MonoBehaviour
                 {
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
+                    Instantiate(Resources.Load("yes"));
                 }
                 break;
             case 2:
@@ -39,6 +42,7 @@ public class GGmove : MonoBehaviour
                 {
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
+                    Instantiate(Resources.Load("yes"));
                 }
                 break;
             case 3:
@@ -46,6 +50,7 @@ public class GGmove : MonoBehaviour
                 {
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
+                    Instantiate(Resources.Load("yes"));
                 }
                 break;
             case 4:
@@ -53,9 +58,18 @@ public class GGmove : MonoBehaviour
                 {
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
+                    Instantiate(Resources.Load("yes"));
                 }
                 break;
+        
         }
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A)
+    || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            if (!yes)
+                Instantiate(Resources.Load("show"));
+        }
+        yes = false;
     }
 
 }

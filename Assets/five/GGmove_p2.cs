@@ -10,6 +10,7 @@ public class GGmove_p2 : MonoBehaviour
     public List<GameObject> lsit;
     public int index;
     public Text text;
+    bool yes;
     void Start()
     {
         index = GGmove.index;
@@ -27,6 +28,8 @@ public class GGmove_p2 : MonoBehaviour
                 {
                     Debug.Log("P2wim");
                     text.text = "P2 Win";
+                    Instantiate(Resources.Load("yes"));
+                    yes = true;
                 }
                 break;
             case 1:
@@ -34,6 +37,8 @@ public class GGmove_p2 : MonoBehaviour
                 {
                     Debug.Log("P2wim");
                     text.text = "P2 Win";
+                    Instantiate(Resources.Load("yes"));
+                    yes = true;
                 }
                 break;
             case 2:
@@ -41,6 +46,8 @@ public class GGmove_p2 : MonoBehaviour
                 {
                     Debug.Log("P2wim");
                     text.text = "P2 Win";
+                    Instantiate(Resources.Load("yes"));
+                    yes = true;
                 }
                 break;
             case 3:
@@ -48,6 +55,8 @@ public class GGmove_p2 : MonoBehaviour
                 {
                     Debug.Log("P2wim");
                     text.text = "P2 Win";
+                    Instantiate(Resources.Load("yes"));
+                    yes = true;
                 }
                 break;
             case 4:
@@ -55,9 +64,19 @@ public class GGmove_p2 : MonoBehaviour
                 {
                     Debug.Log("P2wim");
                     text.text = "P2 Win";
+                    Instantiate(Resources.Load("yes"));
+                    yes = true;
                 }
                 break;
+        
         }
+        if(Input.GetKeyDown(KeyCode.Comma) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow)
+            || Input.GetKeyDown(KeyCode.DownArrow)|| Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if(!yes)
+            Instantiate(Resources.Load("show"));
+        }
+        yes = false;
     }
 
 }
