@@ -33,9 +33,9 @@ public class p1flag : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) Time.timeScale = 0;
 
         if (transform.eulerAngles.z > 90)
-            transform.Rotate(0, 0, -0.5f);
+            transform.Rotate(0, 0, -10f * Time.deltaTime) ;
         if (transform.eulerAngles.z < 90 || transform.eulerAngles.z >0)
-            transform.Rotate(0, 0, 0.5f);
+            transform.Rotate(0, 0, 10f * Time.deltaTime);
         //Debug.Log(transform.localEulerAngles.z);
         if (transform.localEulerAngles.z > 300) 
         {
