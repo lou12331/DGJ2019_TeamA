@@ -8,6 +8,7 @@ public class CameraShake : MonoBehaviour
     public Transform cam;
     public float shakeAmp;
     public static CameraShake Instance;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;

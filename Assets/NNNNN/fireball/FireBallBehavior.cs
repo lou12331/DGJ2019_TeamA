@@ -46,6 +46,7 @@ public class FireBallBehavior : MonoBehaviour
                 d.GetComponent<Rigidbody2D>().AddForce(force);
                 Debug.Log("FireBall contact Player");
                 d.isLose = true;
+                CameraShake.Instance.Shake();
                 Destroy(this.gameObject);
             }
 
