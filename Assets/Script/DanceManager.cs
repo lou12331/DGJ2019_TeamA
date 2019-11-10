@@ -12,7 +12,7 @@ namespace LinchLab
         public bool isOnGame = false;
         public bool isOnReset = false;
 
-        //public AudioSource aud;
+        public AudioSource aud;
 
         public GameObject txtMsg;
         public GameObject txtMsgA;
@@ -77,7 +77,7 @@ namespace LinchLab
         private void Awake()
         {
             instance = this;
-            //aud = this.gameObject.GetComponent<AudioSource>();
+            aud = this.gameObject.GetComponent<AudioSource>();
         }
 
         private void Start()
@@ -115,8 +115,11 @@ namespace LinchLab
                     dancer_a.GetComponent<SpineHelper>().setAnimation("Win");
                     setMsg("Player 1 Wins!");
 
+                    if (game_count != source_collection.Count)
+                        Instantiate(SE.instance.applause);
+                    else
+                        aud.Stop();
                     checkGameSet();
-                    Instantiate(SE.instance.applause);
                 }
 
                 if (idx_b == collection.Count)
@@ -133,8 +136,12 @@ namespace LinchLab
                     dancer_b.GetComponent<SpineHelper>().setAnimation("Win");
                     setMsg("Player 2 Wins!");
 
+                    if (game_count != source_collection.Count)
+                        Instantiate(SE.instance.applause);
+                    else
+                        aud.Stop();
+
                     checkGameSet();
-                    Instantiate(SE.instance.applause);
                 }
             }
         }
@@ -148,13 +155,18 @@ namespace LinchLab
             }
             else
             {
+                Instantiate(SE.instance.boss);
                 if (win_player_1 > win_player_2)
                 {
+                    dancer_a.transform.gameObject.SetActive(false);
+                    dancer_b.GetComponent<SpineHelper>().setAnimation("Lose");
                     if (GeneralManager.Instance != null)
                         GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
                 }
                 else
                 {
+                    dancer_b.transform.gameObject.SetActive(false);
+                    dancer_a.GetComponent<SpineHelper>().setAnimation("Lose");
                     if (GeneralManager.Instance != null)
                         GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
                 }

@@ -8,7 +8,10 @@ namespace LinchLab
 {
     public class RaceManager : MonoBehaviour
     {
-       public static  RaceManager instance;
+        public static RaceManager instance;
+
+        public AudioSource aud;
+
 
         public GameObject txtMsg;
         public GameObject txtHintA;
@@ -19,6 +22,10 @@ namespace LinchLab
         public GameObject end_a;
         public GameObject end_b;
 
+        public GameObject super_rock_a;
+        public GameObject super_rock_b;
+
+
         private bool showDistance = false;
 
         private void Awake()
@@ -26,6 +33,21 @@ namespace LinchLab
             instance = this;
             txtHintA.GetComponent<Text>().text = "";
             txtHintB.GetComponent<Text>().text = "";
+            aud = GetComponent<AudioSource>();
+
+            super_rock_a.SetActive(false);
+            super_rock_b.SetActive(false);
+            int rand = (int)Random.Range(0, 100);
+            if (rand % 2 == 0)
+            {
+                super_rock_a.SetActive(true);
+            }
+            else
+            {
+                super_rock_b.SetActive(true);
+            }
+
+
         }
 
         private void Update()
@@ -79,6 +101,7 @@ namespace LinchLab
 
         public void setGame()
         {
+            aud.Play();
             player_a.GetComponent<RacePlayerCharacterControlA>().enabled = true;
             player_b.GetComponent<RacePlayerCharacterControlB>().enabled = true;
             showDistance = true;
@@ -86,6 +109,7 @@ namespace LinchLab
 
         public void setGameEnd(string msg = "")
         {
+            aud.Stop();
             showDistance = false;
             player_a.GetComponent<RacePlayerCharacterControlA>().enabled = false;
             player_b.GetComponent<RacePlayerCharacterControlB>().enabled = false;

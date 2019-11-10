@@ -957,6 +957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOnGame: 0
   isOnReset: 0
+  aud: {fileID: 0}
   txtMsg: {fileID: 159431554}
   txtMsgA: {fileID: 1208336582}
   txtMsgB: {fileID: 1846431895}
@@ -1120,6 +1121,7 @@ MonoBehaviour:
     type: 3}
   jump: {fileID: 891824074355187203, guid: be1347ce7e7a923428b082a3d64966ac, type: 3}
   correct: {fileID: 891824074355187203, guid: c1813d929488df84ca7669832a90345c, type: 3}
+  boss: {fileID: 891824074355187203, guid: 9b29b2c472e351c498d34c5a05f7d96d, type: 3}
 --- !u!1 &1208336582
 GameObject:
   m_ObjectHideFlags: 0
