@@ -31,7 +31,14 @@ public class GeneralManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+        }
     }
 
     public void OpenShowCard(GameObject Parent)
@@ -77,12 +84,20 @@ public class GeneralManager : MonoBehaviour
     IEnumerator loadScene(string sceneName)
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-        
+
         yield break;
     }
     public void MiniGameOver()
     {
-        UnloadScene(SelectedCards[nowPlayingIndex - 1]);
+        MiniGameSceneManager miniGameSceneManager = GetComponent<MiniGameSceneManager>();
+        foreach (string item in miniGameSceneManager.MiniGameScenes)
+        {
+            if (SceneManager.GetSceneByName(item).isLoaded)
+            {
+                UnloadScene(item);
+            }
+        }
+        
     }
     public void UnloadScene(string sceneName)
     {
@@ -94,21 +109,25 @@ public class GeneralManager : MonoBehaviour
 
         yield break;
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
 
 #if UNITY_EDITOR
-    [CustomEditor(typeof(GeneralManager))]
-    public class GeneralManagerInspector : Editor
+[CustomEditor(typeof(GeneralManager))]
+public class GeneralManagerInspector : Editor
+{
+    GeneralManager manager;
+    private void OnEnable()
     {
-        GeneralManager manager;
-        private void OnEnable()
-        {
-            manager = (GeneralManager)target;
-        }
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-
-        }
+        manager = (GeneralManager)target;
     }
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+    }
+}
 #endif
