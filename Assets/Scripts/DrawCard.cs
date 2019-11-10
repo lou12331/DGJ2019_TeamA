@@ -219,6 +219,7 @@ public class DrawCard : MonoBehaviour
             }
             if (haveSelect) return;
 
+            AudioSource.PlayOneShot(SlideCadrSound);
             SelectedCard_Player2.Add(DrawCards_Player2[id]);
             GameObject TempObj = Instantiate(CardImages_Player2[id].gameObject, transform);
             TempObj.transform.position = CardImages_Player2[id].transform.position;

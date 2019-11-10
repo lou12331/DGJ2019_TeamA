@@ -33,7 +33,7 @@ public class DDR_GameManager : MonoBehaviour
             if (Player1HandleBlock == null)
             {
                 int r = Random.Range(0, Blocks.Count);
-                Player1HandleBlock = Instantiate(Blocks[r].Prefab);
+                Player1HandleBlock = Instantiate(Blocks[r].Prefab, transform);
                 Player1HandleBlock.transform.position = new Vector3(Blocks[r].SpawnPosX_P1, SpawnPosY);
                 Player1HandleBlock.GetComponent<DDR_BlockScript>().Onwer = DDR_BlockScript.Player.Player1;
             }
@@ -54,7 +54,7 @@ public class DDR_GameManager : MonoBehaviour
             if (Player2HandleBlock == null)
             {
                 int r = Random.Range(0, Blocks.Count);
-                Player2HandleBlock = Instantiate(Blocks[r].Prefab);
+                Player2HandleBlock = Instantiate(Blocks[r].Prefab,transform);
                 Player2HandleBlock.transform.position = new Vector3(Blocks[r].SpawnPosX_P2, SpawnPosY);
                 Player2HandleBlock.GetComponent<DDR_BlockScript>().Onwer = DDR_BlockScript.Player.Player2;
             }

@@ -1297,7 +1297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &290902050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11526,7 +11526,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u88FD\u4F5C\u4EBA\u54E1\u540D\u55AE\r\n\r\n\u7A0B\u5F0F\r\n\u6953\u8449\u7DA0\u8336\u3000\u7965\u6069\u3000\u8A8C\u6069\r\n\u535A\u58EB\u3000\u6587\u54E5\r\n\r\n\u97F3\u6A02\uFF0F\u97F3\u6548\r\nRaellen\r\n\r\n\u7F8E\u8853\r\nxe\u3000\u4E94\u4E03\u3000Titi\u3000\u963F\u54ED\u3000\u7D05\u8393\r\n\r\n\u4F01\u5283\r\n\u5168\u9AD4\u7D44\u54E1\r\n\r\n\u5927\u65C5\u884C\u5BB6\r\n\u75D5\u6708\r\n\r\n\r\n\r\n\u5FAE\u91BAGame
+  m_Text: "\u88FD\u4F5C\u4EBA\u54E1\u540D\u55AE\r\n\r\n\u7A0B\u5F0F\r\n\u6953\u8449\u7DA0\u8336\u3000\u7965\u6069\u3000\u8A8C\u6069\r\n\u535A\u58EB\u3000\u6587\u54E5\r\n\r\n\u97F3\u6A02\uFF0F\u97F3\u6548\r\nRaellen\r\n\r\n\u7F8E\u8853\r\nxe\u3000\u4E94\u4E03\u3000Titi\u3000\u963F\u54ED\n\u7D05\u8393\r\u3000Raellen\r\n\r\n\u4F01\u5283\r\n\u5168\u9AD4\u7D44\u54E1\r\n\r\n\u5927\u65C5\u884C\u5BB6\r\n\u75D5\u6708\r\n\r\n\r\n\r\n\u5FAE\u91BAGame
     Jame 2019 AJ\u7D44"
 --- !u!222 &2100102108
 CanvasRenderer:
