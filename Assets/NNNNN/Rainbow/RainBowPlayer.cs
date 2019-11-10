@@ -26,6 +26,21 @@ public class RainBowPlayer : MonoBehaviour
         if(currentTime >= targetTime)
         {
             isWin = true;
+            if(p1)
+            {
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                }
+            }
+            else
+            {
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                }
+            }
+     
             return;
         }
 

@@ -22,12 +22,20 @@ public class HoTiManager : MonoBehaviour
             if(ValidateWin(listA))
             {
                 Debug.LogError("TODO:A win");
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                }
                 //GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Instance.Player.Player1);
 
             }
             if (ValidateWin(listB))
             {
                 Debug.LogError("TODO:B win");
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                }
             }
             Debug.Log(ValidateWin(listA) + ":" + ValidateWin(listB));
             return;

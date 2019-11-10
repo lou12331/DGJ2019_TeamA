@@ -28,11 +28,19 @@ public class RainBowManager : MonoBehaviour
                 {
                     Debug.Log("p1Win");
                     p1.PlayWinAnim();
+                    if (GeneralManager.Instance)
+                    {
+                        GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                    }
                 }
                 if (p2.isWin)
                 {
                     Debug.Log("p2Win");
                     p2.PlayWinAnim();
+                    if (GeneralManager.Instance)
+                    {
+                        GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                    }
                 }
 
                 if (current) Destroy(current,1);

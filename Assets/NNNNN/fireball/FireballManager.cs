@@ -18,16 +18,25 @@ public class FireballManager : MonoBehaviour
         {
             if(p1.isLose)
             {
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                }
                 Debug.Log("P2 Win");
                 p1.enabled = false;
                 return;
             }
             if(p2.isLose)
             {
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                }
                 Debug.Log("P1 Win");
                 p2.enabled = false;
                 return;
             }
+           
 
         }
         else
