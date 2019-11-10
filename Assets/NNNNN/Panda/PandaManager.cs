@@ -28,11 +28,19 @@ public class PandaManager : MonoBehaviour
             {
                 pa = collision.GetComponent<PandaBehavior>();
                 p1W = true;
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                }
             }
             else
             {
                 pa = collision.GetComponent<PandaBehavior>();
                 p2W = true;
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                }
             }
             Debug.Log(p1W +":"+ p2W);
         }
@@ -45,6 +53,7 @@ public class PandaManager : MonoBehaviour
             if (p1)
             {
                 p1W = false;
+      
             }
             else
             {
