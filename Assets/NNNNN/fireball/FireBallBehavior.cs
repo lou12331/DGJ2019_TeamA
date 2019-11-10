@@ -7,6 +7,7 @@ public class FireBallBehavior : MonoBehaviour
     public Vector2 force;
     Rigidbody2D rig;
     public string tag;
+    public bool isHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +28,9 @@ public class FireBallBehavior : MonoBehaviour
         var d = collision.gameObject.GetComponent<FireBallInput>();
         if (c)
         {
-            if (c.tag != this.tag)
+            if (c.tag != this.tag && !c.isHit)
             {
+                c.isHit = true;
                 Destroy(this.gameObject);
             }
             Debug.Log("FireBall contact FireBall");
@@ -41,6 +43,7 @@ public class FireBallBehavior : MonoBehaviour
             {
                 d.GetComponent<Rigidbody2D>().AddForce(force);
                 Debug.Log("FireBall contact Player");
+                d.isLose = true;
                 Destroy(this.gameObject);
             }
 
