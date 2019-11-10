@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(opcode[0]))
         {
             vector+=new Vector2(0,1);
+            Instantiate(Resources.Load("show"));
         }
         if(Input.GetKey(opcode[1]))
         {
@@ -141,12 +142,13 @@ public class Player : MonoBehaviour
         if (p1)
         {
             text.text = "P2 Win";
-            
+            Instantiate(Resources.Load("exp"));
         }
         else
         {
             text.text = "P1 Win";
-            
+            Instantiate(Resources.Load("exp"));
+
         }
         if (GeneralManager.Instance)
         {
@@ -167,6 +169,7 @@ public class Player : MonoBehaviour
         {
             GameObject g=Instantiate(bullet,transform.position,transform.rotation);
             g.GetComponent<Bullet>().detectTag=((gameObject.tag=="PlayerA")? "PlayerB":"PlayerA");
+            Instantiate(Resources.Load("roll"));
         }
     }
     SpriteRenderer spriteRenderer;

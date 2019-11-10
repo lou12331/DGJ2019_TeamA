@@ -9,6 +9,7 @@ public class HoTiManager : MonoBehaviour
     public int indexa=0, indexb=0;
     public float moveFactor = 0.5f;
     public Text text;
+    private Object o;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class HoTiManager : MonoBehaviour
             {
                 Debug.LogError("TODO:A win");
                 text.text = "P1 Win";
+                if(o==null) o=Instantiate(Resources.Load("111"));
                 if (GeneralManager.Instance)
                 {
                     GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
@@ -36,6 +38,7 @@ public class HoTiManager : MonoBehaviour
             {
                 Debug.LogError("TODO:B win");
                 text.text = "P2 Win";
+                if (o == null) o = Instantiate(Resources.Load("111"));
                 if (GeneralManager.Instance)
                 {
                     GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
@@ -60,7 +63,8 @@ public class HoTiManager : MonoBehaviour
                 //Rotate
                 list[indexa].transform.localEulerAngles += new Vector3(0, 0, 1) * 90;
                 Debug.Log("key_confirm_a");
-            }
+                Instantiate(Resources.Load("roll"));
+                }
             if (SYS.input.key_cancel_a)
             {
                 //change list
@@ -118,6 +122,7 @@ public class HoTiManager : MonoBehaviour
                 //Rotate
                 list[indexb].transform.localEulerAngles += new Vector3(0, 0, 1) * 90;
                 Debug.Log("key_confirm_b");
+                Instantiate(Resources.Load("roll"));
             }
             if (SYS.input.key_cancel_b)
             {

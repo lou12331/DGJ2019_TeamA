@@ -34,6 +34,7 @@ public class HoTiBehavior : MonoBehaviour
             {
 
                 this.canMove = false;
+                Instantiate(Resources.Load("222"));
             }
 
             
