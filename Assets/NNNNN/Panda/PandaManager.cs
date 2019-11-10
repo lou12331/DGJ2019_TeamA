@@ -91,38 +91,38 @@ public class PandaManager : MonoBehaviour
         {
             if (SYS.input.rightKeyA)
             {
-                transform.position += Vector3.right * factor;
+                transform.position += Vector3.right * factor * Time.deltaTime;
             }
             if (SYS.input.leftKeyA)
             {
-                transform.position += Vector3.left * factor;
+                transform.position += Vector3.left * factor * Time.deltaTime;
             }
             if (SYS.input.upKeyA)
             {
-                transform.position += Vector3.up * factor;
+                transform.position += Vector3.up * factor * Time.deltaTime;
             }
             if (SYS.input.downKeyA)
             {
-                transform.position += Vector3.down * factor;
+                transform.position += Vector3.down * factor * Time.deltaTime;
             }
         }
         else
         {
             if (SYS.input.rightKeyB)
             {
-                transform.position += Vector3.right * factor;
+                transform.position += Vector3.right * factor * Time.deltaTime;
             }
             if (SYS.input.leftKeyB)
             {
-                transform.position += Vector3.left * factor;
+                transform.position += Vector3.left * factor * Time.deltaTime;
             }
             if (SYS.input.upKeyB)
             {
-                transform.position += Vector3.up * factor;
+                transform.position += Vector3.up * factor * Time.deltaTime;
             }
             if (SYS.input.downKeyB)
             {
-                transform.position += Vector3.down * factor;
+                transform.position += Vector3.down * factor * Time.deltaTime;
             }
         }
 

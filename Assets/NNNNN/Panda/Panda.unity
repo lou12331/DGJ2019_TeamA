@@ -505,7 +505,7 @@ MonoBehaviour:
   - {fileID: 2126917491}
   - {fileID: 1321179043}
   - {fileID: 391508792}
-  factor: 1
+  factor: 10
   p1: 1
   p1W: 0
   p2W: 0
@@ -4500,7 +4500,7 @@ MonoBehaviour:
   - {fileID: 1749177975}
   - {fileID: 1746057040}
   - {fileID: 1005723393}
-  factor: 1
+  factor: 10
   p1: 0
   p1W: 0
   p2W: 0
