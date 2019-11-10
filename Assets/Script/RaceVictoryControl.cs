@@ -12,13 +12,14 @@ namespace LinchLab
             {
                 RaceManager.instance.setGameEnd("Player 1 Wins!");
                 Debug.Log("PlayerA Wins");
+                Instantiate(SE.instance.applause);
             }
             else if (collider.tag == "PlayerB")
             {
                 RaceManager.instance.setGameEnd("Player B Wins!");
                 Debug.Log("PlayerB Wins");
+                Instantiate(SE.instance.applause);
             }
-
         }
     }
 }
