@@ -160,17 +160,29 @@ namespace LinchLab
                 {
                     dancer_a.transform.gameObject.SetActive(false);
                     dancer_b.GetComponent<SpineHelper>().setAnimation("Lose");
-                    if (GeneralManager.Instance != null)
-                        GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
                 }
                 else
                 {
                     dancer_b.transform.gameObject.SetActive(false);
                     dancer_a.GetComponent<SpineHelper>().setAnimation("Lose");
-                    if (GeneralManager.Instance != null)
-                        GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
                 }
                 setMsg("GAME OVER!");
+                StartCoroutine(setGameEndReturn());
+            }
+        }
+
+        public IEnumerator setGameEndReturn()
+        {
+            yield return new WaitForSeconds(3f);
+            if (win_player_1 > win_player_2)
+            {
+                if (GeneralManager.Instance != null)
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+            }
+            else
+            {
+                if (GeneralManager.Instance != null)
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
             }
         }
 

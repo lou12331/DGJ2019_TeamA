@@ -27,6 +27,7 @@ public class GGmove : MonoBehaviour
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
                     Instantiate(Resources.Load("yes"));
+                    if(GeneralManager.Instance)GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
                 }
                 break;
             case 1:
@@ -35,6 +36,7 @@ public class GGmove : MonoBehaviour
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
                     Instantiate(Resources.Load("yes"));
+                    if (GeneralManager.Instance) GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
                 }
                 break;
             case 2:
@@ -43,6 +45,7 @@ public class GGmove : MonoBehaviour
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
                     Instantiate(Resources.Load("yes"));
+                    if (GeneralManager.Instance) GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
                 }
                 break;
             case 3:
@@ -51,6 +54,7 @@ public class GGmove : MonoBehaviour
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
                     Instantiate(Resources.Load("yes"));
+                    if (GeneralManager.Instance) GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
                 }
                 break;
             case 4:
@@ -59,6 +63,7 @@ public class GGmove : MonoBehaviour
                     Debug.Log("P1wim");
                     text.text = "P1 Win";
                     Instantiate(Resources.Load("yes"));
+                    if (GeneralManager.Instance) GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
                 }
                 break;
         

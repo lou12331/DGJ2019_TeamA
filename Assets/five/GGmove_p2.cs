@@ -30,6 +30,7 @@ public class GGmove_p2 : MonoBehaviour
                     text.text = "P2 Win";
                     Instantiate(Resources.Load("yes"));
                     yes = true;
+                    if(GeneralManager.Instance)GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
                 }
                 break;
             case 1:
@@ -39,6 +40,7 @@ public class GGmove_p2 : MonoBehaviour
                     text.text = "P2 Win";
                     Instantiate(Resources.Load("yes"));
                     yes = true;
+                    if (GeneralManager.Instance) GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
                 }
                 break;
             case 2:
@@ -48,6 +50,7 @@ public class GGmove_p2 : MonoBehaviour
                     text.text = "P2 Win";
                     Instantiate(Resources.Load("yes"));
                     yes = true;
+                    if (GeneralManager.Instance) GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
                 }
                 break;
             case 3:
@@ -57,6 +60,7 @@ public class GGmove_p2 : MonoBehaviour
                     text.text = "P2 Win";
                     Instantiate(Resources.Load("yes"));
                     yes = true;
+                    if (GeneralManager.Instance) GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
                 }
                 break;
             case 4:
@@ -66,6 +70,7 @@ public class GGmove_p2 : MonoBehaviour
                     text.text = "P2 Win";
                     Instantiate(Resources.Load("yes"));
                     yes = true;
+                    if (GeneralManager.Instance) GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
                 }
                 break;
         
