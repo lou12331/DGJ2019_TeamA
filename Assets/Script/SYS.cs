@@ -59,6 +59,7 @@ public class SYS : MonoBehaviour
             }
         }
 
+
         public static bool downKeyA
         {
             get

@@ -10,15 +10,21 @@ namespace LinchLab
         {
             if (DanceManager.instance.isOnGame)
             {
-                if (SYS.input.upKeyB && ExpectedKey == DanceManager.danceKey.up)
-                    DanceManager.instance.moveNextB();
-                if (SYS.input.downKeyB && ExpectedKey == DanceManager.danceKey.down)
-                    DanceManager.instance.moveNextB();
-                if (SYS.input.rightKeyB && ExpectedKey == DanceManager.danceKey.right)
-                    DanceManager.instance.moveNextB();
-                if (SYS.input.leftKeyB && ExpectedKey == DanceManager.danceKey.left)
-                    DanceManager.instance.moveNextB();
+                if (InputManager.instance.GetAxisDownVerticalB())
+                {
+                    if (SYS.input.upKeyB && ExpectedKey == DanceManager.danceKey.up)
+                        DanceManager.instance.moveNextB();
+                    if (SYS.input.downKeyB && ExpectedKey == DanceManager.danceKey.down)
+                        DanceManager.instance.moveNextB();
+                }
 
+                if (InputManager.instance.GetAxisDownHorizontalB())
+                {
+                    if (SYS.input.rightKeyB && ExpectedKey == DanceManager.danceKey.right)
+                        DanceManager.instance.moveNextB();
+                    if (SYS.input.leftKeyB && ExpectedKey == DanceManager.danceKey.left)
+                        DanceManager.instance.moveNextB();
+                }
 
                 if (SYS.input.key_confirm_b && ExpectedKey == DanceManager.danceKey.A)
                     DanceManager.instance.moveNextB();
