@@ -43,7 +43,8 @@ public class p1flag : MonoBehaviour
             this.enabled = false;
             IsGameEnd = true;
             p2.IsGameEnd = true;
-            text.text = "P1 Win";
+            text.text = "P2 Win";
+            if(GeneralManager.Instance)GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
 
         }
         //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z % 180);
