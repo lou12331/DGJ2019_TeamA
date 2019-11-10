@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RainBowPlayer : MonoBehaviour
 {
@@ -14,10 +15,12 @@ public class RainBowPlayer : MonoBehaviour
     Coroutine myCo;
     public Sprite[] sps;
     int index = 0;
+    public Text text;
     // Start is called before the first frame update
     void Start()
     {
         manager = FindObjectOfType<RainBowManager>();
+        text.text = "";
     }
 
     // Update is called once per frame
@@ -26,6 +29,23 @@ public class RainBowPlayer : MonoBehaviour
         if(currentTime >= targetTime)
         {
             isWin = true;
+            if(p1)
+            {
+                text.text = "P1 Win";
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                }
+            }
+            else
+            {
+                text.text = "P2 Win";
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                }
+            }
+     
             return;
         }
 
@@ -55,12 +75,14 @@ public class RainBowPlayer : MonoBehaviour
             if(tag.tag =="wine")
             {
                 GetComponent<Renderer>().material.DOColor(Color.red, 0.5f).SetLoops(2, LoopType.Yoyo);
-                currentTime--;
+                currentTime++;
+                Instantiate(Resources.Load("wineSE"));
             }
             if (tag.tag == "water")
             {
                 GetComponent<Renderer>().material.DOColor(Color.blue, 0.5f).SetLoops(2, LoopType.Yoyo);
-                currentTime++;
+                currentTime--;
+                Instantiate(Resources.Load("waterSE"));
             }
         }
     }

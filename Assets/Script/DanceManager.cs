@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ namespace LinchLab
         public static DanceManager instance;
         public bool isOnGame = false;
         public bool isOnReset = false;
+
+        //public AudioSource aud;
 
         public GameObject txtMsg;
         public GameObject txtMsgA;
@@ -62,13 +65,23 @@ namespace LinchLab
         public int idx_main;
         public int game_count = 0;
 
-
         public GameObject dancer_a;
         public GameObject dancer_b;
 
-        private void Start()
+        public GameObject txt_win_a;
+        public GameObject txt_win_b;
+
+        private int win_player_1 = 0;
+        private int win_player_2 = 0;
+
+        private void Awake()
         {
             instance = this;
+            //aud = this.gameObject.GetComponent<AudioSource>();
+        }
+
+        private void Start()
+        {
             collection = new List<danceKey>();
             dancer_a.GetComponent<SpineHelper>().setAnimation("Idle");
             dancer_b.GetComponent<SpineHelper>().setAnimation("Idle");
@@ -78,33 +91,51 @@ namespace LinchLab
             txtMsgA.GetComponent<Text>().supportRichText = true;
             txtMsgB.GetComponent<Text>().supportRichText = true;
 
+
             StartCoroutine(initGame());
         }
         void Update()
         {
+            txt_win_a.GetComponent<Text>().text = win_player_1.ToString();
+            txt_win_b.GetComponent<Text>().text = win_player_2.ToString();
+
             if (collection.Count != 0 && isOnGame)
             {
                 if (idx_a == collection.Count)
                 {
                     game_count++;
+                    if (game_count != source_collection.Count)
+                        win_player_1++;
+                    else
+                        win_player_1 += 10;
+
+                    //aud.Stop();
                     isOnGame = false;
                     dancer_b.GetComponent<SpineHelper>().setAnimationLoop("Cry");
-                    dancer_a.GetComponent<SpineHelper>().setAnimationLoop("Idle");
-                    Debug.Log("Player A Wins!");
+                    dancer_a.GetComponent<SpineHelper>().setAnimation("Win");
+                    setMsg("Player 1 Wins!");
+
                     checkGameSet();
+                    Instantiate(SE.instance.applause);
                 }
 
                 if (idx_b == collection.Count)
                 {
                     game_count++;
+                    if (game_count != source_collection.Count)
+                        win_player_2++;
+                    else
+                        win_player_2 += 10;
+
+                    //aud.Stop();
                     isOnGame = false;
                     dancer_a.GetComponent<SpineHelper>().setAnimationLoop("Cry");
-                    dancer_b.GetComponent<SpineHelper>().setAnimationLoop("Idle");
-                    Debug.Log("Player B Wins!");
+                    dancer_b.GetComponent<SpineHelper>().setAnimation("Win");
+                    setMsg("Player 2 Wins!");
+
                     checkGameSet();
+                    Instantiate(SE.instance.applause);
                 }
-
-
             }
         }
 
@@ -117,6 +148,16 @@ namespace LinchLab
             }
             else
             {
+                if (win_player_1 > win_player_2)
+                {
+                    if (GeneralManager.Instance != null)
+                        GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                }
+                else
+                {
+                    if (GeneralManager.Instance != null)
+                        GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                }
                 setMsg("GAME OVER!");
             }
         }
@@ -125,46 +166,46 @@ namespace LinchLab
         {
             idx_main++;
             yield return new WaitForSeconds(3);
-            StartCoroutine(initGame());
+            StartCoroutine(initReGame());
             isOnReset = false;
         }
 
         public void moveNextA()
         {
-            Debug.Log("Key Match!");
+            Instantiate(SE.instance.correct);
             idx_a++;
             if (idx_a <= collection.Count - 1)
                 expectedKeyA = collection[idx_a];
 
-            string startTag = "<color=green>";
+            string startTag = "<color=#70f356>";
             string endTag = "</color>";
-            string msg = "";
+            string msg = startTag;
             for (int i = 0; i < collection.Count; i++)
             {
-                if (i == idx_a)
-                    msg += startTag + collection[i] + endTag;
+                if (i == idx_a - 1)
+                    msg += GetCmd(collection[i]) + endTag;
                 else
-                    msg += collection[i];
+                    msg += GetCmd(collection[i]);
             }
             setMsgPlayerA(msg);
         }
 
         public void moveNextB()
         {
-            Debug.Log("Key Match!");
+            Instantiate(SE.instance.correct);
             idx_b++;
             if (idx_b <= collection.Count - 1)
-                expectedKeyA = collection[idx_b];
+                expectedKeyB = collection[idx_b];
 
-            string startTag = "<color=green>";
+            string startTag = "<color=#70f356>";
             string endTag = "</color>";
-            string msg = "";
+            string msg = startTag;
             for (int i = 0; i < collection.Count; i++)
             {
-                if (i == idx_a)
-                    msg += startTag + collection[i] + endTag;
+                if (i == idx_b - 1)
+                    msg += GetCmd(collection[i]) + endTag;
                 else
-                    msg += collection[i];
+                    msg += GetCmd(collection[i]);
             }
             setMsgPlayerB(msg);
         }
@@ -189,9 +230,21 @@ namespace LinchLab
             setGame(source_collection[idx_main]);
         }
 
+        public IEnumerator initReGame()
+        {
+            setMsg("Ready?");
+            yield return new WaitForSeconds(1);
+            setMsg("GO!!!");
+            yield return new WaitForSeconds(1);
+
+            setGame(source_collection[idx_main]);
+        }
+
 
         public void setGame(List<danceKey> _collection)
         {
+            //aud.Play();
+
             collection = _collection;
             expectedKeyA = collection[0];
             expectedKeyB = collection[0];
@@ -201,8 +254,20 @@ namespace LinchLab
 
             idx_a = idx_b = 0;
 
-            string danceCmdSet = string.Empty;
+            string danceCmdSet = GetCmd();
 
+            isOnGame = true;
+            setMsg("");
+            setMsgPlayerA(danceCmdSet);
+            setMsgPlayerB(danceCmdSet);
+
+            dancer_b.GetComponent<SpineHelper>().setAnimationLoop("Dancing");
+            dancer_a.GetComponent<SpineHelper>().setAnimationLoop("Dancing");
+        }
+
+        private string GetCmd()
+        {
+            string danceCmdSet = string.Empty;
             foreach (danceKey dance_key in collection)
             {
                 switch (dance_key)
@@ -229,13 +294,67 @@ namespace LinchLab
                         break;
                 }
             }
-            isOnGame = true;
-            setMsg("");
-            setMsgPlayerA(danceCmdSet);
-            setMsgPlayerB(danceCmdSet);
+            return danceCmdSet;
+        }
 
-            dancer_b.GetComponent<SpineHelper>().setAnimationLoop("Dancing");
-            dancer_a.GetComponent<SpineHelper>().setAnimationLoop("Dancing");
+        private string GetCmd(string cmd)
+        {
+            string danceCmdSet = string.Empty;
+
+            danceKey key = (danceKey)Enum.Parse(typeof(danceKey), cmd);
+            switch (key)
+            {
+                case danceKey.up:
+                    danceCmdSet += "↑";
+                    break;
+                case danceKey.down:
+                    danceCmdSet += "↓";
+                    break;
+                case danceKey.right:
+                    danceCmdSet += "→";
+                    break;
+                case danceKey.left:
+                    danceCmdSet += "←";
+                    break;
+                case danceKey.A:
+                    danceCmdSet += "A";
+                    break;
+                case danceKey.B:
+                    danceCmdSet += "B";
+                    break;
+                default:
+                    break;
+            }
+            return danceCmdSet;
+        }
+
+        private string GetCmd(danceKey key)
+        {
+            string danceCmdSet = string.Empty;
+            switch (key)
+            {
+                case danceKey.up:
+                    danceCmdSet += "↑";
+                    break;
+                case danceKey.down:
+                    danceCmdSet += "↓";
+                    break;
+                case danceKey.right:
+                    danceCmdSet += "→";
+                    break;
+                case danceKey.left:
+                    danceCmdSet += "←";
+                    break;
+                case danceKey.A:
+                    danceCmdSet += "A";
+                    break;
+                case danceKey.B:
+                    danceCmdSet += "B";
+                    break;
+                default:
+                    break;
+            }
+            return danceCmdSet;
         }
 
         public void setMsg(string msg)

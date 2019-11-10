@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 public enum PlayerState
 {
     SpecialSkillActive,
@@ -21,10 +23,15 @@ public class Player : MonoBehaviour
     [SerializeField] KeyCode[] opcode=new KeyCode[]{KeyCode.W,KeyCode.S,KeyCode.A,KeyCode.D};
     [SerializeField] KeyCode attackCode;
     public bool p1;
-    
+    public Text text;
+    public float animInterval;
     // Start is called before the first frame update
     public PlayerState CurPlayerState;
     Rigidbody2D rigidbody=null;
+    Coroutine co;
+    public Sprite[] sps;
+    public SpriteRenderer sn;
+    int index;
 
     IEnumerator moving(Vector2 dir)
     {
@@ -103,21 +110,53 @@ public class Player : MonoBehaviour
             spriteRenderer.flipX=true;
         }
     }
+
+    public void PlayAnim()
+    {
+        if(co==null)
+        {
+            co = StartCoroutine(anim());
+            sn.enabled = true;
+        }
+           
+    }
+    IEnumerator anim()
+    {
+        while(index <sps.Length)
+        {
+            yield return new WaitForSeconds(animInterval);
+            Debug.Log(index);
+            sn.sprite = sps[index];
+            index++;
+        }
+
+    }
     public void Trapped()
     {
         Debug.Log("called trapped");
         StopAllCoroutines();
         CurPlayerState=PlayerState.Traped;
         spriteRenderer.flipY = true;
+        PlayAnim();
+        if (p1)
+        {
+            text.text = "P2 Win";
+            
+        }
+        else
+        {
+            text.text = "P1 Win";
+            
+        }
         if (GeneralManager.Instance)
         {
             if (p1)
             {
-                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
             }
             else
             {
-                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
             }
         }
       
@@ -135,6 +174,7 @@ public class Player : MonoBehaviour
     {
         spriteRenderer=GetComponent<SpriteRenderer>();
         rigidbody=GetComponent<Rigidbody2D>();
+        text.text = "";
     }
 
     // Update is called once per frame

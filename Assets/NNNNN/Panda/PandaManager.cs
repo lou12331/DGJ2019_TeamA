@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PandaManager : MonoBehaviour
 {
@@ -13,11 +14,12 @@ public class PandaManager : MonoBehaviour
     public bool p2W=false;
     public PandaBehavior pa;
     Coroutine co;
+    public Text text;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        text.text = "";
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,11 +30,21 @@ public class PandaManager : MonoBehaviour
             {
                 pa = collision.GetComponent<PandaBehavior>();
                 p1W = true;
+                text.text = "P1 Win";
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                }
             }
             else
             {
                 pa = collision.GetComponent<PandaBehavior>();
                 p2W = true;
+                text.text = "P2 Win";
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                }
             }
             Debug.Log(p1W +":"+ p2W);
         }
@@ -45,6 +57,7 @@ public class PandaManager : MonoBehaviour
             if (p1)
             {
                 p1W = false;
+      
             }
             else
             {
@@ -60,7 +73,10 @@ public class PandaManager : MonoBehaviour
             if(pa)
             {
                 if(co == null)
+                {
                     co = StartCoroutine(pa.Anim());
+                    Instantiate(Resources.Load("pandashoot"));
+                }
                 //pa.SetWin2();
             }
             else

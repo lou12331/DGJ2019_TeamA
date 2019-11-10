@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HoTiManager : MonoBehaviour
 {
     public List<HoTiBehavior> listA, listB;
     public int indexa=0, indexb=0;
     public float moveFactor = 0.5f;
+    public Text text;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        text.text = "";
     }
 
     // Update is called once per frame
@@ -22,12 +24,22 @@ public class HoTiManager : MonoBehaviour
             if(ValidateWin(listA))
             {
                 Debug.LogError("TODO:A win");
+                text.text = "P1 Win";
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+                }
                 //GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Instance.Player.Player1);
 
             }
             if (ValidateWin(listB))
             {
                 Debug.LogError("TODO:B win");
+                text.text = "P2 Win";
+                if (GeneralManager.Instance)
+                {
+                    GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+                }
             }
             Debug.Log(ValidateWin(listA) + ":" + ValidateWin(listB));
             return;

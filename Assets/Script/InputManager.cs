@@ -8,8 +8,10 @@ namespace LinchLab
     public class InputManager : MonoBehaviour
     {
         public static InputManager instance;
-        public static bool axis_states_horizontal = false;
-        public static bool axis_states_vertical = false;
+        public static bool axis_states_horizontal_a = false;
+        public static bool axis_states_vertical_a = false;
+        public static bool axis_states_horizontal_b = false;
+        public static bool axis_states_vertical_b = false;
 
         private void Awake()
         {
@@ -82,11 +84,11 @@ namespace LinchLab
         public bool GetAxisDownHorizontalA()
         {
             bool current_input_value = Input.GetAxisRaw(SYS.input.horizontal_a) == 0 ? false : true;
-            if (current_input_value && axis_states_horizontal)
+            if (current_input_value && axis_states_horizontal_a)
             {
                 return false;
             }
-            axis_states_horizontal = current_input_value;
+            axis_states_horizontal_a = current_input_value;
             SYS.input.axis_horizontal_a = Input.GetAxisRaw(SYS.input.horizontal_a);
             return current_input_value;
         }
@@ -94,11 +96,11 @@ namespace LinchLab
         public bool GetAxisDownVerticalA()
         {
             bool current_input_value = Input.GetAxisRaw(SYS.input.vertical_a) == 0 ? false : true;
-            if (current_input_value && axis_states_vertical)
+            if (current_input_value && axis_states_vertical_a)
             {
                 return false;
             }
-            axis_states_vertical = current_input_value;
+            axis_states_vertical_a = current_input_value;
             SYS.input.axis_vertical_a = Input.GetAxisRaw(SYS.input.vertical_a);
             return current_input_value;
         }
@@ -106,11 +108,11 @@ namespace LinchLab
         public bool GetAxisDownHorizontalB()
         {
             bool current_input_value = Input.GetAxisRaw(SYS.input.horizontal_b) == 0 ? false : true;
-            if (current_input_value && axis_states_horizontal)
+            if (current_input_value && axis_states_horizontal_b)
             {
                 return false;
             }
-            axis_states_horizontal = current_input_value;
+            axis_states_horizontal_b = current_input_value;
             SYS.input.axis_horizontal_b = Input.GetAxisRaw(SYS.input.horizontal_b);
             return current_input_value;
         }
@@ -118,11 +120,11 @@ namespace LinchLab
         public bool GetAxisDownVerticalB()
         {
             bool current_input_value = Input.GetAxisRaw(SYS.input.vertical_b) == 0 ? false : true;
-            if (current_input_value && axis_states_vertical)
+            if (current_input_value && axis_states_vertical_b)
             {
                 return false;
             }
-            axis_states_vertical = current_input_value;
+            axis_states_vertical_b = current_input_value;
             SYS.input.axis_vertical_b = Input.GetAxisRaw(SYS.input.vertical_b);
             return current_input_value;
         }

@@ -14,6 +14,7 @@ public class FireBallBehavior : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         rig.AddForce(force);
         Destroy(this.gameObject, 5);
+        Instantiate(Resources.Load("fireballSF"));
     }
 
     // Update is called once per frame

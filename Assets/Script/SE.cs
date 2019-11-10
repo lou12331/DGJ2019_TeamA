@@ -11,6 +11,8 @@ namespace LinchLab
         public GameObject count_count;
         public GameObject count_start;
         public GameObject jump;
+        public GameObject correct;
+
 
         private void Awake()
         {

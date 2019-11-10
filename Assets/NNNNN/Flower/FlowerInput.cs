@@ -40,17 +40,20 @@ public class FlowerInput : MonoBehaviour
         
         if(canMove)
         {
-            if(Input.GetKey(inputA))
+            if(Input.GetKeyDown(inputA))
             {
                 transform.eulerAngles += new Vector3(0, 0, 1) * deltaAngle;
+                Instantiate(Resources.Load("roll"));
             }
-            if (Input.GetKey(inputB))
+            if (Input.GetKeyDown(inputB))
             {
                 transform.eulerAngles -= new Vector3(0, 0, 1) * deltaAngle;
+                Instantiate(Resources.Load("roll"));
             }
 
             if (Mathf.Approximately(Mathf.RoundToInt(transform.eulerAngles.z), Mathf.RoundToInt(targetValue)))
             {
+                Instantiate(Resources.Load("key"));
                 DoNext();
                 Debug.LogError("YA");
             }
