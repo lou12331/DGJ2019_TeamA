@@ -6,6 +6,12 @@ using DG.Tweening;
 public class CameraShake : MonoBehaviour
 {
     public Transform cam;
+    public float shakeAmp;
+    public static CameraShake Instance;
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +23,9 @@ public class CameraShake : MonoBehaviour
     {
         
     }
-
-    public static void Shake(Transform target)
+    [ContextMenu("shake")]
+    public void Shake()
     {
-        target.DOShakePosition(0.5f);
+        cam.DOShakePosition(shakeAmp);
     }
 }

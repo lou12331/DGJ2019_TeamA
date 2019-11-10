@@ -32,8 +32,10 @@ public class FireBallBehavior : MonoBehaviour
             {
                 c.isHit = true;
                 Destroy(this.gameObject);
+                CameraShake.Instance.Shake();
+                Debug.Log("FireBall contact FireBall");
             }
-            Debug.Log("FireBall contact FireBall");
+            
 
         }
 
