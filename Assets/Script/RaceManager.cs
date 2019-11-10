@@ -24,6 +24,8 @@ namespace LinchLab
         private void Awake()
         {
             instance = this;
+            txtHintA.GetComponent<Text>().text = "";
+            txtHintB.GetComponent<Text>().text = "";
         }
 
         private void Update()
@@ -60,12 +62,16 @@ namespace LinchLab
             setMsg("Ready?");
             yield return new WaitForSeconds(3);
             setMsg("3");
+            Instantiate(SE.instance.count_count);
             yield return new WaitForSeconds(1);
             setMsg("2");
+            Instantiate(SE.instance.count_count);
             yield return new WaitForSeconds(1);
             setMsg("1");
+            Instantiate(SE.instance.count_count);
             yield return new WaitForSeconds(1);
             setMsg("GO!!!");
+            Instantiate(SE.instance.count_start);
             yield return new WaitForSeconds(1);
             setMsg("");
             setGame();

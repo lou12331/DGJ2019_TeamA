@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] KeyRecorder keyRecorder;
     [SerializeField] KeyCode[] opcode=new KeyCode[]{KeyCode.W,KeyCode.S,KeyCode.A,KeyCode.D};
     [SerializeField] KeyCode attackCode;
+    public bool p1;
     
     // Start is called before the first frame update
     public PlayerState CurPlayerState;
@@ -107,6 +108,19 @@ public class Player : MonoBehaviour
         Debug.Log("called trapped");
         StopAllCoroutines();
         CurPlayerState=PlayerState.Traped;
+        spriteRenderer.flipY = true;
+        if (GeneralManager.Instance)
+        {
+            if (p1)
+            {
+                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player1);
+            }
+            else
+            {
+                GeneralManager.Instance.SetThisRoundWinner(GeneralManager.Player.Player2);
+            }
+        }
+      
     }
     void Attack()
     {

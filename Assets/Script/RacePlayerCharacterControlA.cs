@@ -19,28 +19,6 @@ namespace LinchLab
 
         void Update()
         {
-            if (SYS.input.key_confirm_a)
-            {
-                Debug.Log("CONFIRM");
-            }
-
-            //if (SYS.input.rightKeyA)
-            //{
-            //    spine.FlipModelRight();
-            //}
-            //if (SYS.input.leftKeyA)
-            //{
-            //    spine.FlipModelLeft();
-            //}
-
-
-            if (SYS.input.rightKeyA || SYS.input.leftKeyA)
-            {
-            }
-            else
-            {
-            }
-
             if (InputManager.instance.GetAxisDownVerticalA() && allowJump)
             {
                 StartCoroutine(unlockJump());
@@ -53,7 +31,8 @@ namespace LinchLab
         {
             ani.SetBool("isRunning", true);
             allowJump = false;
-            yield return new WaitForSeconds(1.5f);
+            Instantiate(SE.instance.jump);
+            yield return new WaitForSeconds(1.2f);
             allowJump = true;
             ani.SetBool("isRunning", false);
         }

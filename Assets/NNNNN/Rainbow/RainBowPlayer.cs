@@ -82,12 +82,20 @@ public class RainBowPlayer : MonoBehaviour
         yield return new WaitForSeconds(1);
         do
         {
-            index++;
+            if(index >= sps.Length-1)
+            {
+                index--;
+            }
+            else
+            {
+                index++;
+            }
+            
             GetComponent<SpriteRenderer>().sprite = sps[index];
 
             yield return new WaitForSeconds(animDelayTime);
         }
-        while (index < sps.Length-1);
+        while (index < sps.Length);
     
         StopCoroutine(myCo);
         
