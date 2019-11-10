@@ -70,12 +70,14 @@ public class RainBowPlayer : MonoBehaviour
             if(tag.tag =="wine")
             {
                 GetComponent<Renderer>().material.DOColor(Color.red, 0.5f).SetLoops(2, LoopType.Yoyo);
-                currentTime--;
+                currentTime++;
+                Instantiate(Resources.Load("wineSE"));
             }
             if (tag.tag == "water")
             {
                 GetComponent<Renderer>().material.DOColor(Color.blue, 0.5f).SetLoops(2, LoopType.Yoyo);
-                currentTime++;
+                currentTime--;
+                Instantiate(Resources.Load("waterSE"));
             }
         }
     }
