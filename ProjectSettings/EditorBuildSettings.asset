@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/zuowaman/flag.unity
+    path: Assets/zuowaman/flag/flag.unity
     guid: eabd214de2d863e40a499c6b8f468b99
   - enabled: 1
     path: Assets/NNNNN/Flower/millionflowercilinder.unity
