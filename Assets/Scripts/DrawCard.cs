@@ -33,7 +33,7 @@ public class DrawCard : MonoBehaviour
     public string[] DrawCards_Player1;
     public string[] DrawCards_Player2;
     public AudioSource AudioSource;
-    public AudioClip PickCardSound;
+    public AudioClip PickCardSound,SlideCadrSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -190,7 +190,7 @@ public class DrawCard : MonoBehaviour
             }
             if (haveSelect) return;
 
-            AudioSource.PlayOneShot(PickCardSound);
+            AudioSource.PlayOneShot(SlideCadrSound);
             SelectedCard_Player1.Add(DrawCards_Player1[id]);
             GameObject TempObj = Instantiate(CardImages_Player1[id].gameObject, transform);
             TempObj.transform.position = CardImages_Player1[id].transform.position;

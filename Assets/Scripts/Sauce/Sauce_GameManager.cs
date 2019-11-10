@@ -15,7 +15,7 @@ public class Sauce_GameManager : MonoBehaviour
     public AudioClip OnionSound;
     public AudioClip SauceSound;
     public AudioSource AudioSource;
-
+    public AudioClip SelectSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +47,8 @@ public class Sauce_GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(keyCode))
         {
+            AudioSource.PlayOneShot(SelectSound);
+
             if (Player.LV == 0)
             {
 
@@ -105,7 +107,7 @@ public class Sauce_GameManager : MonoBehaviour
         Player.Ping.anchoredPosition = new Vector2(0, 0);
         GoForward(Player);
 
-        
+
 
         if (Player.LV == 2)
         {
@@ -139,10 +141,10 @@ public class Sauce_GameManager : MonoBehaviour
     }
     IEnumerator LV3Sound()
     {
-        
+
         while (Player1.LV == 3 || Player2.LV == 3)
         {
-            
+
             //yield return new WaitForSeconds(0.1f);
         }
         yield break;

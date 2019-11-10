@@ -16,6 +16,9 @@ public class DDR_GameManager : MonoBehaviour
     public GameObject Player2HandleBlock;
     public Text MindText;
     public bool isGameOver;
+
+    public AudioSource AudioSource;
+    public AudioClip CoinSound;
     // Start is called before the first frame update
     void Start()
     {

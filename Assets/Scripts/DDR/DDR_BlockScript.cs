@@ -37,5 +37,6 @@ public class DDR_BlockScript : MonoBehaviour
             else
                 DDR_GameManager.Instance.Player2HandleBlock = null;
         }
+        DDR_GameManager.Instance.AudioSource.PlayOneShot(DDR_GameManager.Instance.CoinSound);
     }
 }

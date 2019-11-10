@@ -263,6 +263,7 @@ MonoBehaviour:
   OnionSound: {fileID: 8300000, guid: c4e8cfa2b9518034980cf0be2bd9e052, type: 3}
   SauceSound: {fileID: 8300000, guid: eaf6311e773abd24ea490d142b0d0f7a, type: 3}
   AudioSource: {fileID: 1357743637}
+  SelectSound: {fileID: 8300000, guid: 7e2a8835ad3049042af09745d22e65f3, type: 3}
 --- !u!114 &48186537
 MonoBehaviour:
   m_ObjectHideFlags: 0
